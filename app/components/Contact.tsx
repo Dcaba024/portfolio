@@ -8,37 +8,43 @@ import ReCAPTCHA from "react-google-recaptcha";
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSent, setIsSent] = useState(false);
-  const recaptchaRef = useRef(null);
+ const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // 🔐 run invisible reCAPTCHA
-    const token = await recaptchaRef.current.executeAsync();
-    recaptchaRef.current.reset();
+  if (!recaptchaRef.current) {
+    console.error("ReCAPTCHA not ready");
+    return;
+  }
 
-    if (!token) {
-      console.error("Captcha failed");
-      return;
-    }
+  const token = await recaptchaRef.current.executeAsync();
+  recaptchaRef.current.reset();
 
-    emailjs
-      .send(
-        "service_6mcnsyo",
-        "template_w119ov8",
-        { ...formData, "g-recaptcha-response": token },
-        "fXwflN6T_8dBc33BB"
-      )
-      .then(() => {
-        setIsSent(true);
-        setFormData({ name: "", email: "", message: "" });
-      })
-      .catch((error) => console.error("Error:", error));
-  };
+  if (!token) {
+    console.error("Captcha failed");
+    return;
+  }
+
+  emailjs
+    .send(
+      "service_6mcnsyo",
+      "template_w119ov8",
+      { ...formData, "g-recaptcha-response": token },
+      "fXwflN6T_8dBc33BB"
+    )
+    .then(() => {
+      setIsSent(true);
+      setFormData({ name: "", email: "", message: "" });
+    })
+    .catch((error) => console.error("Error:", error));
+};
+
 
   return (
     <section id="contact" className="flex flex-col items-center justify-center min-h-screen bg-black text-white px-6 py-20">
