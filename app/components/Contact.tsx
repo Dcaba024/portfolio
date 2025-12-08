@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -8,42 +8,44 @@ import ReCAPTCHA from "react-google-recaptcha";
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSent, setIsSent] = useState(false);
- const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
-
-  const handleChange = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e: any) => {
-  e.preventDefault();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-  if (!recaptchaRef.current) {
-    console.error("ReCAPTCHA not ready");
-    return;
-  }
+    if (!recaptchaRef.current) {
+      console.error("ReCAPTCHA not ready");
+      return;
+    }
 
-  const token = await recaptchaRef.current.executeAsync();
-  recaptchaRef.current.reset();
+    const token = await recaptchaRef.current.executeAsync();
+    recaptchaRef.current.reset();
 
-  if (!token) {
-    console.error("Captcha failed");
-    return;
-  }
+    if (!token) {
+      console.error("Captcha failed");
+      return;
+    }
 
-  emailjs
-    .send(
-      "service_6mcnsyo",
-      "template_w119ov8",
-      { ...formData, "g-recaptcha-response": token },
-      "fXwflN6T_8dBc33BB"
-    )
-    .then(() => {
-      setIsSent(true);
-      setFormData({ name: "", email: "", message: "" });
-    })
-    .catch((error) => console.error("Error:", error));
-};
+    emailjs
+      .send(
+        "service_6mcnsyo",
+        "template_w119ov8",
+        { ...formData, "g-recaptcha-response": token },
+        "fXwflN6T_8dBc33BB"
+      )
+      .then(() => {
+        setIsSent(true);
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => console.error("Error:", error));
+  };
 
 
   return (
