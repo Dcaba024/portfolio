@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 type Message = {
@@ -9,184 +9,21 @@ type Message = {
   text: string;
 };
 
-const knowledgeBase = [
-  {
-    keywords: ["experience", "years", "background", "career", "story"],
-    answer:
-      "I’m an AI-focused software engineer with 5 years of professional experience building scalable React and Next.js applications, most recently delivering enterprise tools at Deloitte.",
-  },
-  {
-    keywords: ["deloitte", "current role", "job", "work"],
-    answer:
-      "At Deloitte I design and ship enterprise-grade web applications that support millions of users. My focus is on clean UI systems, accessibility, and collaborating with cross-functional teams inside Agile sprints.",
-  },
-  {
-    keywords: ["skills", "stack", "technologies", "tools", "languages"],
-    answer:
-      "Day to day I work with TypeScript, React, Next.js, Tailwind, and Node.js. On the data side I have hands-on experience with Python, TensorFlow, PyTorch, and scikit-learn for model development.",
-  },
-  {
-    keywords: ["ai", "machine learning", "ml", "artificial"],
-    answer:
-      "I specialize in integrating AI into products—building machine learning workflows, deploying models, and exploring areas like NLP and computer vision to keep improving user experiences.",
-  },
-  {
-    keywords: ["projects", "ai resume analyzer", "side project"],
-    answer:
-      "I created the AI Resume Analyzer, a full-stack React and Node.js platform that uses OpenAI APIs to score resumes, match jobs, and provide personalized recommendations.",
-  },
-  {
-    keywords: ["accomplishment", "achievement", "impact", "success", "result"],
-    answer:
-      "My proudest accomplishment is leading front-end delivery for a statewide Deloitte project that serves millions of residents—owning the authentication UX and accessibility workstreams while keeping performance and quality KPIs above target. On the side, launching the AI Resume Analyzer proved I can take an AI product from concept to deployment solo.",
-  },
-  {
-    keywords: ["strength", "strengths", "superpower", "value", "advantage"],
-    answer:
-      "My strengths blend product sense with engineering rigor: I can translate business needs into polished user experiences, rapidly prototype with AI, and keep large-scale React systems maintainable through strong component architecture, accessibility, and testing practices.",
-  },
-  {
-    keywords: ["leadership", "mentor", "team lead", "manage", "collaborate"],
-    answer:
-      "I regularly mentor newer engineers at Deloitte, pairing on tickets and reviewing code to ensure we uphold accessibility and performance standards. I thrive in cross-functional squads where designers, PMs, and engineers iterate together.",
-  },
-  {
-    keywords: ["education", "school", "degree", "university", "college"],
-    answer:
-      "I earned my B.S. in Computer Science from Florida International University in 2020.",
-  },
-  {
-    keywords: ["location", "based", "from", "miami", "florida"],
-    answer:
-      "I’m based in Florida and originally from Miami, so I’m comfortable collaborating remotely across U.S. time zones.",
-  },
-  {
-    keywords: ["contact", "email", "phone", "linkedin"],
-    answer:
-      "You can reach me at CaballeroDylan96@gmail.com, connect on LinkedIn at linkedin.com/in/dylan-caballero-54963b185, or call (954) 589-3197.",
-  },
-  {
-    keywords: [
-      "availability",
-      "available",
-      "start date",
-      "timeline",
-      "notice",
-      "schedule",
-      "time slot",
-      "hours",
-    ],
-    answer:
-      "I keep Mondays through Fridays from 12 PM to 5 PM ET open for recruiter conversations, and my email/phone are listed right on my resume. If you need a specific start date we can align once we connect.",
-  },
-  {
-    keywords: ["relocate", "relocation", "remote", "work location"],
-    answer:
-      "I’m based in Florida but fully comfortable working remotely. I’m open to limited travel for key planning sessions or team offsites when needed.",
-  },
-  {
-    keywords: ["culture", "team", "communication", "collaboration"],
-    answer:
-      "I do my best work on collaborative teams that value open communication, trust, and continuous improvement. I’m proactive about sharing context, documenting decisions, and running tight feedback loops with designers and stakeholders.",
-  },
-  {
-    keywords: ["learning", "certification", "upskill", "growth"],
-    answer:
-      "Continuous learning is important to me—I’m actively pursuing AI/ML certifications and experimenting with new tooling in NLP and computer vision to keep leveling up.",
-  },
-  {
-    keywords: ["interests", "hobbies", "food"],
-    answer:
-      "Outside of work you’ll find me training Brazilian Jiu-Jitsu and hunting down great Colombian food—cheesecake and pizza are staples for me.",
-  },
-  {
-    keywords: [
-      "challenge",
-      "biggest challenge",
-      "difficult",
-      "problem",
-      "obstacle",
-    ],
-    answer:
-      "One meaningful challenge was rebuilding the authentication UX for a statewide Deloitte platform under a tight compliance deadline. I led the front-end effort, aligning design, security, and accessibility stakeholders so we could launch on time while meeting WCAG 2.1 AA and performance targets.",
-  },
-  {
-    keywords: ["motivation", "why leave", "new role", "next role", "goal"],
-    answer:
-      "I’m excited to keep pushing deeper into AI-enabled products and front-end platforms where I can own a larger scope. Deloitte’s been fantastic, but I’m ready to take those enterprise learnings to a team that needs an engineer who can blend UX, AI, and platform thinking.",
-  },
-  {
-    keywords: [
-      "team size",
-      "teamwork",
-      "cross functional",
-      "collaboration style",
-    ],
-    answer:
-      "I typically work inside Agile squads of 6–10 people—PM, designer, accessibility lead, and engineers. I stay close to design reviews, keep async notes in Notion, and run tight feedback loops so shipping is predictable.",
-  },
-  {
-    keywords: ["process", "agile", "scrum", "workflow", "delivery"],
-    answer:
-      "My delivery rhythm is Agile/Scrum: refine stories with PMs, break down work into composable components, pair program when needed, and keep PRs focused and well-tested. I also invest in documentation so handoffs are painless.",
-  },
-  {
-    keywords: [
-      "certification",
-      "certifications",
-      "learning path",
-      "courses",
-      "training",
-    ],
-    answer:
-      "I’m actively pursuing AI/ML certifications to stay sharp—diving into advanced NLP, vector search techniques, and computer vision so I can bring modern patterns straight into client work.",
-  },
-  {
-    keywords: [
-      "authorization",
-      "work authorization",
-      "visa",
-      "sponsorship",
-      "status",
-    ],
-    answer:
-      "I’ve been working in the U.S. throughout my career and handle U.S.-based roles without needing sponsorship. Happy to provide any verification your HR team requires.",
-  },
-  {
-    keywords: [
-      "compensation",
-      "salary",
-      "pay",
-      "rate",
-      "budget",
-      "expectation",
-    ],
-    answer:
-      "I prefer to discuss compensation after we’ve aligned on scope, expectations, and team fit. I’m confident we can find a range that reflects the impact you need.",
-  },
-  {
-    keywords: [
-      "contract",
-      "full time",
-      "employment type",
-      "engagement",
-      "w2",
-      "c2c",
-    ],
-    answer:
-      "I’m open to full-time roles and select contract engagements if they involve building meaningful AI-infused products. Let me know what you have in mind.",
-  },
-];
+type ChatApiResponse = {
+  answer?: string;
+  error?: string;
+};
 
-const fallbackAnswer =
-  "I’m not sure about that yet, but feel free to ask about my experience, skills, current work, or background.";
+const defaultErrorMessage =
+  "I ran into an issue connecting to my AI assistant. Please try again in a moment.";
 
 export default function About() {
   const [messages, setMessages] = useState<Message[]>(() => [
     {
       id: Date.now(),
       role: "bot",
-      text: "Hi! I’m Dylan Caballero. Ask me anything about my work, skills, or experience and I’ll share the details.",
+      text:
+        "Hi! I’m Dylan Caballero, a project manager and front-end delivery lead. Ask me anything about how I plan, coordinate, and ship large-scale digital programs.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -200,28 +37,34 @@ export default function About() {
     }
   };
 
-  const generateAnswer = (question: string) => {
-    const normalized = question.toLowerCase();
-    const sanitized = normalized
-      .replace(/[^\w\s]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-    const tokens = new Set(sanitized.split(" ").filter(Boolean));
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
-    const matched = knowledgeBase.find((entry) =>
-      entry.keywords.some((keyword) => {
-        const normalizedKeyword = keyword.toLowerCase();
-        if (normalizedKeyword.includes(" ")) {
-          return sanitized.includes(normalizedKeyword);
-        }
-        return tokens.has(normalizedKeyword);
-      })
-    );
+  const fetchAnswer = async (question: string) => {
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ question }),
+      });
 
-    return matched ? matched.answer : fallbackAnswer;
+      const data = (await response.json()) as ChatApiResponse;
+
+      if (!response.ok) {
+        return data?.error ?? defaultErrorMessage;
+      }
+
+      return data?.answer?.trim() || defaultErrorMessage;
+    } catch (error) {
+      console.error("Chatbot request failed:", error);
+      return defaultErrorMessage;
+    }
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const trimmed = input.trim();
     if (!trimmed || isThinking) return;
@@ -236,16 +79,16 @@ export default function About() {
     setInput("");
     setIsThinking(true);
 
-    setTimeout(() => {
-      const botMessage: Message = {
-        id: Date.now(),
-        role: "bot",
-        text: generateAnswer(trimmed),
-      };
-      setMessages((prev) => [...prev, botMessage]);
-      setIsThinking(false);
-      scrollToBottom();
-    }, 500);
+    const answer = await fetchAnswer(trimmed);
+
+    const botMessage: Message = {
+      id: Date.now(),
+      role: "bot",
+      text: answer,
+    };
+
+    setMessages((prev) => [...prev, botMessage]);
+    setIsThinking(false);
   };
 
   return (
@@ -265,18 +108,19 @@ export default function About() {
             Ask About Me
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-3">
-            I’m a Front-End Developer with{" "}
+            I’m a Project Manager and Front-End Delivery Lead with{" "}
             <span className="text-white font-semibold">
               5+ years of experience
             </span>{" "}
-            crafting modern web applications. I currently build enterprise-grade
-            solutions at Deloitte with a focus on authentication, accessibility,
-            and scalable UI systems.
+            guiding statewide web modernization initiatives. I currently run
+            enterprise-grade programs at Deloitte that support Texas.gov and
+            TXDMV, aligning product, engineering, and accessibility partners to
+            deliver secure, compliant services.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
-            I love collaborating on AI-driven products, integrating machine
-            learning into real-world apps, and experimenting with new tooling.
-            Ask me anything below to learn how I can help your team.
+            I focus on predictable delivery, WCAG-compliant user experiences,
+            and AI-assisted workflows that keep teams moving fast. Ask me
+            anything below to learn how I can support your roadmap.
           </p>
         </div>
 
