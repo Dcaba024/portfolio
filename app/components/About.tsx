@@ -23,7 +23,7 @@ export default function About() {
       id: Date.now(),
       role: "bot",
       text:
-        "Hi! I’m Dylan Caballero, a project manager and front-end delivery lead. Ask me anything about how I plan, coordinate, and ship large-scale digital programs.",
+        "Hi! I’m Dylan Caballero, a cybersecurity engineer focused on IAM. Ask me about ForgeRock, OAuth 2.0, Google reCAPTCHA, and securing public-sector identity journeys.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -108,19 +108,16 @@ export default function About() {
             Ask About Me
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-3">
-            I’m a Project Manager and Front-End Delivery Lead with{" "}
-            <span className="text-white font-semibold">
-              5+ years of experience
-            </span>{" "}
-            guiding statewide web modernization initiatives. I currently run
-            enterprise-grade programs at Deloitte that support Texas.gov and
-            TXDMV, aligning product, engineering, and accessibility partners to
-            deliver secure, compliant services.
+            I’m pivoting from software engineering into cybersecurity, with a
+            focus on identity and access management. My experience includes
+            implementing ForgeRock-based IAM flows, OAuth 2.0 authorization,
+            and Google reCAPTCHA protections for the State of Texas across
+            Texas.gov and TXDMV.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
-            I focus on predictable delivery, WCAG-compliant user experiences,
-            and AI-assisted workflows that keep teams moving fast. Ask me
-            anything below to learn how I can support your roadmap.
+            I focus on secure authentication journeys, risk-reduction
+            integrations, and compliance-ready identity experiences. Ask me
+            anything below to learn how I can support your IAM roadmap.
           </p>
         </div>
 
@@ -131,7 +128,7 @@ export default function About() {
                 Dylan Caballero
               </p>
               <p className="text-xl font-semibold text-white">
-                Career Chatbot
+                IAM Career Chatbot
               </p>
             </div>
             <span className="text-xs px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full border border-blue-600/40">
@@ -175,7 +172,7 @@ export default function About() {
             <input
               type="text"
               className="flex-1 rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              placeholder="Ask about my experience, skills, or recent work..."
+              placeholder="Ask about IAM, ForgeRock, OAuth 2.0, or reCAPTCHA..."
               value={input}
               onChange={(event) => setInput(event.target.value)}
               aria-label="Ask Dylan a question"

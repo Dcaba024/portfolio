@@ -23,8 +23,9 @@ export default function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-100 max-w-xl mx-auto mb-8">
-            Front-End Developer passionate about crafting sleek, accessible, and
-            high-performance web apps with React, Next.js, and modern UI frameworks.
+            Software engineer pivoting into cybersecurity, focused on identity
+            and access management while still building sleek, accessible web
+            experiences with React and Next.js.
           </p>
 
           <div className="flex justify-center gap-4">
