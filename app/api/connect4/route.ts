@@ -74,6 +74,138 @@ const checkWinner = (board: number[][], player: number) => {
   return false;
 };
 
+const scoreWindow = (window: number[], player: number) => {
+  const opponent = player === AI ? USER : AI;
+  const playerCount = window.filter((cell) => cell === player).length;
+  const opponentCount = window.filter((cell) => cell === opponent).length;
+  const emptyCount = window.filter((cell) => cell === EMPTY).length;
+
+  if (playerCount === 4) return 100;
+  if (playerCount === 3 && emptyCount === 1) return 5;
+  if (playerCount === 2 && emptyCount === 2) return 2;
+  if (opponentCount === 3 && emptyCount === 1) return -6;
+  if (opponentCount === 4) return -100;
+  return 0;
+};
+
+const scorePosition = (board: number[][], player: number) => {
+  let score = 0;
+
+  const centerCol = Math.floor(COLS / 2);
+  const centerArray = board.map((row) => row[centerCol]);
+  const centerCount = centerArray.filter((cell) => cell === player).length;
+  score += centerCount * 3;
+
+  for (let row = 0; row < ROWS; row += 1) {
+    for (let col = 0; col < COLS - 3; col += 1) {
+      const window = [
+        board[row][col],
+        board[row][col + 1],
+        board[row][col + 2],
+        board[row][col + 3],
+      ];
+      score += scoreWindow(window, player);
+    }
+  }
+
+  for (let col = 0; col < COLS; col += 1) {
+    for (let row = 0; row < ROWS - 3; row += 1) {
+      const window = [
+        board[row][col],
+        board[row + 1][col],
+        board[row + 2][col],
+        board[row + 3][col],
+      ];
+      score += scoreWindow(window, player);
+    }
+  }
+
+  for (let row = 0; row < ROWS - 3; row += 1) {
+    for (let col = 0; col < COLS - 3; col += 1) {
+      const window = [
+        board[row][col],
+        board[row + 1][col + 1],
+        board[row + 2][col + 2],
+        board[row + 3][col + 3],
+      ];
+      score += scoreWindow(window, player);
+    }
+  }
+
+  for (let row = 3; row < ROWS; row += 1) {
+    for (let col = 0; col < COLS - 3; col += 1) {
+      const window = [
+        board[row][col],
+        board[row - 1][col + 1],
+        board[row - 2][col + 2],
+        board[row - 3][col + 3],
+      ];
+      score += scoreWindow(window, player);
+    }
+  }
+
+  return score;
+};
+
+const isTerminal = (board: number[][], validColumns: number[]) =>
+  checkWinner(board, USER) || checkWinner(board, AI) || validColumns.length === 0;
+
+const minimax = (
+  board: number[][],
+  depth: number,
+  alpha: number,
+  beta: number,
+  maximizing: boolean
+): { column: number | null; score: number } => {
+  const validColumns = getValidColumns(board);
+  const terminal = isTerminal(board, validColumns);
+
+  if (depth === 0 || terminal) {
+    if (terminal) {
+      if (checkWinner(board, AI)) return { column: null, score: 1_000_000 };
+      if (checkWinner(board, USER)) return { column: null, score: -1_000_000 };
+      return { column: null, score: 0 };
+    }
+    return { column: null, score: scorePosition(board, AI) };
+  }
+
+  if (maximizing) {
+    let value = -Infinity;
+    let bestColumn = validColumns[0] ?? null;
+    for (const col of validColumns) {
+      const next = dropInColumn(board, col, AI);
+      const result = minimax(next, depth - 1, alpha, beta, false);
+      if (result.score > value) {
+        value = result.score;
+        bestColumn = col;
+      }
+      alpha = Math.max(alpha, value);
+      if (alpha >= beta) break;
+    }
+    return { column: bestColumn, score: value };
+  }
+
+  let value = Infinity;
+  let bestColumn = validColumns[0] ?? null;
+  for (const col of validColumns) {
+    const next = dropInColumn(board, col, USER);
+    const result = minimax(next, depth - 1, alpha, beta, true);
+    if (result.score < value) {
+      value = result.score;
+      bestColumn = col;
+    }
+    beta = Math.min(beta, value);
+    if (alpha >= beta) break;
+  }
+  return { column: bestColumn, score: value };
+};
+
+const scoreAiMove = (board: number[][], col: number) => {
+  const next = dropInColumn(board, col, AI);
+  if (checkWinner(next, AI)) return 1_000_000;
+  return scorePosition(next, AI);
+};
+
 const pickHeuristicMove = (board: number[][], validColumns: number[]) => {
   for (const col of validColumns) {
     const next = dropInColumn(board, col, AI);
@@ -144,13 +276,24 @@ export async function POST(request: Request) {
     const data = await response.json();
     const raw = data?.choices?.[0]?.message?.content?.trim();
     const column = Number.parseInt(raw, 10);
+    const minimaxResult = minimax(board, 4, -Infinity, Infinity, true);
+    const minimaxColumn =
+      minimaxResult.column !== null &&
+      validColumns.includes(minimaxResult.column)
+        ? minimaxResult.column
+        : validColumns[0];
 
     if (!Number.isInteger(column) || !validColumns.includes(column)) {
-      const fallback = pickHeuristicMove(board, validColumns);
+      const fallback = minimaxColumn ?? pickHeuristicMove(board, validColumns);
       return NextResponse.json({ column: fallback });
     }
 
-    return NextResponse.json({ column });
+    const aiScore = scoreAiMove(board, column);
+    const minimaxScore = minimaxResult.score;
+    const bestColumn =
+      minimaxScore > aiScore && minimaxColumn !== null ? minimaxColumn : column;
+
+    return NextResponse.json({ column: bestColumn });
   } catch (error) {
     console.error("Connect4 route error:", error);
     return NextResponse.json(
