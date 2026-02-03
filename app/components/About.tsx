@@ -23,7 +23,7 @@ export default function About() {
       id: Date.now(),
       role: "bot",
       text:
-        "Hi! I’m Dylan Caballero, a cybersecurity engineer focused on IAM. Ask me about ForgeRock, OAuth 2.0, Google reCAPTCHA, and securing public-sector identity journeys.",
+        "Hi! I’m Dylan Caballero, a software engineer and AI engineer focused on IAM. Ask me about ForgeRock, OAuth 2.0, Google reCAPTCHA, and securing public-sector identity journeys.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -108,11 +108,11 @@ export default function About() {
             Ask About Me
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-3">
-            I’m pivoting from software engineering into cybersecurity, with a
-            focus on identity and access management. My experience includes
-            implementing ForgeRock-based IAM flows, OAuth 2.0 authorization,
-            and Google reCAPTCHA protections for the State of Texas across
-            Texas.gov and TXDMV.
+            I’m a software engineer and AI engineer focused on building secure,
+            reliable identity and access management experiences. My experience
+            includes implementing ForgeRock-based IAM flows, OAuth 2.0
+            authorization, and Google reCAPTCHA protections for the State of
+            Texas across Texas.gov and TXDMV.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
             I focus on secure authentication journeys, risk-reduction
@@ -125,10 +125,10 @@ export default function About() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <p className="text-sm uppercase tracking-widest text-gray-400">
-                Dylan Caballero
+              Dylan Caballero
               </p>
               <p className="text-xl font-semibold text-white">
-                IAM Career Chatbot
+                IAM + AI Career Chatbot
               </p>
             </div>
             <span className="text-xs px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full border border-blue-600/40">
@@ -172,7 +172,7 @@ export default function About() {
             <input
               type="text"
               className="flex-1 rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              placeholder="Ask about IAM, ForgeRock, OAuth 2.0, or reCAPTCHA..."
+              placeholder="Ask about IAM, AI agents, OpenAI, ForgeRock, OAuth 2.0..."
               value={input}
               onChange={(event) => setInput(event.target.value)}
               aria-label="Ask Dylan a question"

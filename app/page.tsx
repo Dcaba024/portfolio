@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import About from "./components/About";
+import Connect4 from "./components/Connect4";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -23,9 +24,9 @@ export default function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-100 max-w-xl mx-auto mb-8">
-            Software engineer pivoting into cybersecurity, focused on identity
-            and access management while still building sleek, accessible web
-            experiences with React and Next.js.
+            Software engineer and AI engineer focused on identity and access
+            management while building sleek, accessible web experiences with
+            React and Next.js.
           </p>
 
           <div className="flex justify-center gap-4">
@@ -67,6 +68,7 @@ export default function Home() {
 
       {/* === ABOUT === */}
       <About />
+      <Connect4 />
       <Projects />
       <Contact />
       <Footer />

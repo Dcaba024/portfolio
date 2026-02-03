@@ -20,6 +20,14 @@ const projects = [
     github: "https://github.com/Dcaba024/Resume-Analyzer",
     demo: "https://resume-analyzer-woad.vercel.app/",
   },
+  {
+    title: "Cardboard Kings",
+    description:
+      "A polished, fan-friendly sports card cleaning studio where collectors can book services and sell prized collectibles in one sleek storefront.",
+    tech: ["Next.js", "Postgres", "Tailwind"],
+    github: "https://github.com/Dcaba024/cardboardkings",
+    demo: "https://cardboardkings.org",
+  },
 ];
 
 export default function Projects() {

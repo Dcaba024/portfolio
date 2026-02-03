@@ -6,9 +6,14 @@ Location: Florida, USA (remote-friendly)
 Contact: CaballeroDylan96@gmail.com | (954) 589-3197 | linkedin.com/in/dylan-caballero-54963b185
 
 Summary:
-- Project Manager and Front-End Delivery Lead with 5 years of experience guiding enterprise modernization projects for Texas.gov and TXDMV at Deloitte.
+- Software Engineer and AI Engineer with 5 years of experience guiding enterprise modernization projects for Texas.gov and TXDMV at Deloitte.
 - Expert in Agile project execution, sprint planning, stakeholder communication, risk mitigation, WCAG accessibility, and production readiness.
 - Comfortable translating between product, engineering, QA, and design partners while coordinating CI/CD releases and AI-assisted workflows.
+
+AI Agents & OpenAI Expertise:
+- Builds AI agents for workflow automation, data extraction, and decision support.
+- Experienced integrating OpenAI APIs for chat, summarization, and scoring pipelines.
+- Focused on safe, reliable prompt engineering and evaluation loops.
 
 Core Strengths:
 - Project Management: Agile/Scrum, backlog prioritization, requirements gathering, change management, documentation, cross-team coordination.
