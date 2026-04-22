@@ -23,7 +23,7 @@ export default function About() {
       id: Date.now(),
       role: "bot",
       text:
-        "Hi! I’m Dylan Caballero, a software engineer and AI engineer focused on IAM. Ask me about ForgeRock, OAuth 2.0, Google reCAPTCHA, and securing public-sector identity journeys.",
+        "Hi! I’m Dylan Caballero, a software engineer with experience in IAM, AI-powered applications, and front-end development. Ask me about ForgeRock, OAuth 2.0, Google reCAPTCHA, public-sector identity journeys, or the kind of roles I’m targeting.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -92,52 +92,80 @@ export default function About() {
   };
 
   return (
-    <section
-      id="about"
-      className="flex flex-col items-center justify-center min-h-screen bg-[#0a0a0a] text-white px-6 py-16"
-    >
+    <section id="about" className="section-shell px-6 py-8 md:px-10 md:py-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="max-w-5xl w-full flex flex-col gap-10"
+        className="glass-panel grid gap-8 rounded-[2rem] p-6 text-left md:p-8 lg:grid-cols-[0.88fr_1.12fr]"
       >
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-4 text-blue-500">
-            Ask About Me
-          </h2>
-          <p className="text-lg text-gray-300 leading-relaxed mb-3">
-            I’m a software engineer and AI engineer focused on building secure,
-            reliable identity and access management experiences. My experience
-            includes implementing ForgeRock-based IAM flows, OAuth 2.0
-            authorization, and Google reCAPTCHA protections for the State of
-            Texas across Texas.gov and TXDMV.
-          </p>
-          <p className="text-lg text-gray-300 leading-relaxed">
-            I focus on secure authentication journeys, risk-reduction
-            integrations, and compliance-ready identity experiences. Ask me
-            anything below to learn how I can support your IAM roadmap.
-          </p>
-        </div>
+        <div className="flex flex-col justify-between gap-8">
+          <div>
+            <p className="section-kicker">About + AI</p>
+            <h2 className="mt-5 max-w-md text-4xl font-semibold leading-tight tracking-[-0.04em] text-slate-950 dark:text-white">
+              Recruiter-ready context on my experience, strengths, and technical focus.
+            </h2>
+          </div>
 
-        <div className="bg-[#0f111a] border border-blue-900/40 rounded-2xl p-6 shadow-2xl shadow-blue-900/10">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="text-sm uppercase tracking-widest text-gray-400">
-              Dylan Caballero
-              </p>
-              <p className="text-xl font-semibold text-white">
-                IAM + AI Career Chatbot
+          <div className="space-y-4 text-base leading-8 text-slate-600 dark:text-slate-300">
+            <p>
+              I’m a software engineer with a strong focus on identity and access
+              management, front-end application development, and AI-assisted
+              product experiences.
+            </p>
+            <p>
+              My recent work includes supporting ForgeRock-based IAM flows, OAuth
+              2.0 authorization, and Google reCAPTCHA integrations for public-sector
+              experiences serving Texas.gov and TXDMV users.
+            </p>
+            <p>
+              I’m most effective in roles where I can bridge secure systems and
+              product execution by turning technical requirements into reliable,
+              user-friendly interfaces.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-3">
+            <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">
+              <p className="text-sm text-slate-500 dark:text-slate-400">Domain</p>
+              <p className="mt-2 font-semibold text-slate-900 dark:text-white">
+                IAM and secure user journeys
               </p>
             </div>
-            <span className="text-xs px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full border border-blue-600/40">
+            <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">
+              <p className="text-sm text-slate-500 dark:text-slate-400">Stack</p>
+              <p className="mt-2 font-semibold text-slate-900 dark:text-white">
+                React, Next.js, TypeScript, OpenAI
+              </p>
+            </div>
+            <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">
+              <p className="text-sm text-slate-500 dark:text-slate-400">Approach</p>
+              <p className="mt-2 font-semibold text-slate-900 dark:text-white">
+                Clear communication and product ownership
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-[1.75rem] border border-slate-200/30 bg-slate-950 p-5 shadow-2xl shadow-slate-950/10 dark:border-white/10">
+          <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+              <p className="text-sm uppercase tracking-[0.22em] text-slate-400">
+                Dylan Caballero
+              </p>
+              <p className="mt-1 text-2xl font-semibold text-white">
+                Career chatbot
+              </p>
+            </div>
+            <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
               Live
             </span>
           </div>
+
           <div
             ref={listRef}
-            className="h-80 overflow-y-auto space-y-3 bg-black/30 rounded-xl p-4 border border-white/5"
+            className="mt-5 h-80 space-y-3 overflow-y-auto rounded-[1.35rem] border border-white/8 bg-white/[0.04] p-4"
           >
             {messages.map((message) => (
               <div
@@ -147,10 +175,10 @@ export default function About() {
                 }`}
               >
                 <div
-                  className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm ${
+                  className={`max-w-[84%] rounded-[1.35rem] px-4 py-3 text-sm leading-6 ${
                     message.role === "user"
-                      ? "bg-blue-600 text-white"
-                      : "bg-white/10 text-gray-100 border border-white/5"
+                      ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-white"
+                      : "border border-white/8 bg-white/8 text-slate-100"
                   }`}
                 >
                   {message.text}
@@ -159,27 +187,28 @@ export default function About() {
             ))}
             {isThinking && (
               <div className="flex justify-start">
-                <div className="bg-white/10 text-gray-300 border border-white/5 rounded-2xl px-4 py-3 text-sm">
+                <div className="rounded-[1.35rem] border border-white/8 bg-white/8 px-4 py-3 text-sm text-slate-300">
                   Thinking...
                 </div>
               </div>
             )}
           </div>
+
           <form
             onSubmit={handleSubmit}
-            className="flex gap-3 mt-4 flex-col sm:flex-row"
+            className="mt-4 flex flex-col gap-3 sm:flex-row"
           >
             <input
               type="text"
-              className="flex-1 rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              placeholder="Ask about IAM, AI agents, OpenAI, ForgeRock, OAuth 2.0..."
+              className="flex-1 rounded-full border border-white/10 bg-white/6 px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              placeholder="Ask about my experience, IAM work, AI projects, or roles I’m a fit for..."
               value={input}
               onChange={(event) => setInput(event.target.value)}
               aria-label="Ask Dylan a question"
             />
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-500 transition text-white font-semibold px-6 py-3 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="rounded-full bg-white px-6 py-3 font-semibold text-slate-950 disabled:cursor-not-allowed disabled:opacity-50"
               disabled={!input.trim() || isThinking}
             >
               {isThinking ? "Sending..." : "Send"}
