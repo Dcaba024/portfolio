@@ -149,32 +149,32 @@ export default function Connect4() {
   };
 
   return (
-    <section id="connect4" className="section-shell px-6 py-8 md:px-10 md:py-10">
+    <section id="connect4" className="section-shell px-4 py-6 md:px-10 md:py-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="glass-panel rounded-[2rem] p-6 text-left md:p-8"
+        className="glass-panel rounded-[1.75rem] p-5 text-left md:rounded-[2rem] md:p-8"
       >
         <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
           <div>
             <p className="section-kicker">Interactive Demo</p>
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 dark:text-white">
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
               A playful break in the flow, without breaking the design.
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-8 text-slate-600 dark:text-slate-300">
+            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
               The Connect 4 section now feels like part of the same portfolio system:
               cleaner spacing, stronger contrast, and clearer status messaging.
             </p>
 
-            <div className="mt-8 rounded-[1.75rem] border border-slate-200/80 bg-white/80 p-5 shadow-lg shadow-slate-900/5 dark:border-white/10 dark:bg-slate-950/55">
+            <div className="mt-8 rounded-[1.5rem] border border-slate-200/80 bg-white/80 p-4 shadow-lg shadow-slate-900/5 md:rounded-[1.75rem] md:p-5 dark:border-white/10 dark:bg-slate-950/55">
               <div className="flex items-center justify-between gap-4 border-b border-slate-200 pb-4 dark:border-white/10">
                 <div>
                   <p className="text-sm uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                     OpenAI Challenge
                   </p>
-                  <p className="mt-1 text-2xl font-semibold text-slate-950 dark:text-white">
+                  <p className="mt-1 text-xl font-semibold text-slate-950 sm:text-2xl dark:text-white">
                     Connect 4 arena
                   </p>
                 </div>
@@ -183,10 +183,10 @@ export default function Connect4() {
                 </span>
               </div>
 
-              <div className="mt-5 rounded-[1.5rem] bg-slate-950 p-4 shadow-inner dark:bg-slate-900">
-                <div className="grid grid-rows-6 gap-2 rounded-[1.25rem] bg-indigo-800/90 p-3">
+              <div className="mt-5 overflow-x-auto rounded-[1.35rem] bg-slate-950 p-3 shadow-inner dark:bg-slate-900 sm:rounded-[1.5rem] sm:p-4">
+                <div className="grid min-w-max grid-rows-6 gap-1.5 rounded-[1.1rem] bg-indigo-800/90 p-2.5 sm:gap-2 sm:rounded-[1.25rem] sm:p-3">
                   {board.map((row, rowIndex) => (
-                    <div key={rowIndex} className="grid grid-cols-7 gap-2">
+                    <div key={rowIndex} className="grid grid-cols-7 gap-1.5 sm:gap-2">
                       {row.map((cell, colIndex) => {
                         const isPlayable =
                           winner === EMPTY &&
@@ -205,7 +205,7 @@ export default function Connect4() {
                             type="button"
                             onClick={() => handleMove(colIndex)}
                             disabled={!isPlayable}
-                            className={`h-11 w-11 rounded-full border border-white/10 ${chipColor} shadow-sm transition hover:scale-105 sm:h-14 sm:w-14 disabled:cursor-not-allowed disabled:hover:scale-100`}
+                            className={`h-9 w-9 rounded-full border border-white/10 ${chipColor} shadow-sm transition hover:scale-105 min-[380px]:h-10 min-[380px]:w-10 sm:h-14 sm:w-14 disabled:cursor-not-allowed disabled:hover:scale-100`}
                             aria-label={`Column ${colIndex + 1}`}
                           />
                         );
@@ -215,12 +215,12 @@ export default function Connect4() {
                 </div>
               </div>
 
-              <div className="mt-4 flex items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-300">
+              <div className="mt-4 flex flex-col items-start justify-between gap-3 text-sm text-slate-600 min-[420px]:flex-row min-[420px]:items-center dark:text-slate-300">
                 <span>{isBoardFull && winner === EMPTY ? "Board full." : status}</span>
                 <button
                   type="button"
                   onClick={resetGame}
-                  className="rounded-full border border-slate-300 px-4 py-2 font-semibold text-slate-800 hover:border-slate-400 dark:border-slate-700 dark:text-slate-100"
+                  className="w-full rounded-full border border-slate-300 px-4 py-2 font-semibold text-slate-800 hover:border-slate-400 min-[420px]:w-auto dark:border-slate-700 dark:text-slate-100"
                 >
                   Reset
                 </button>

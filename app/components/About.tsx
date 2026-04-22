@@ -92,23 +92,23 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="section-shell px-6 py-8 md:px-10 md:py-10">
+    <section id="about" className="section-shell px-4 py-6 md:px-10 md:py-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="glass-panel grid gap-8 rounded-[2rem] p-6 text-left md:p-8 lg:grid-cols-[0.88fr_1.12fr]"
+        className="glass-panel grid gap-6 rounded-[1.75rem] p-5 text-left md:gap-8 md:rounded-[2rem] md:p-8 lg:grid-cols-[0.88fr_1.12fr]"
       >
         <div className="flex flex-col justify-between gap-8">
           <div>
             <p className="section-kicker">About + AI</p>
-            <h2 className="mt-5 max-w-md text-4xl font-semibold leading-tight tracking-[-0.04em] text-slate-950 dark:text-white">
+            <h2 className="mt-5 max-w-md text-3xl font-semibold leading-tight tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
               Recruiter-ready context on my experience, strengths, and technical focus.
             </h2>
           </div>
 
-          <div className="space-y-4 text-base leading-8 text-slate-600 dark:text-slate-300">
+          <div className="space-y-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
             <p>
               I’m a software engineer with a strong focus on identity and access
               management, front-end application development, and AI-assisted
@@ -148,13 +148,13 @@ export default function About() {
           </div>
         </div>
 
-        <div className="rounded-[1.75rem] border border-slate-200/30 bg-slate-950 p-5 shadow-2xl shadow-slate-950/10 dark:border-white/10">
-          <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div className="rounded-[1.5rem] border border-slate-200/30 bg-slate-950 p-4 shadow-2xl shadow-slate-950/10 md:rounded-[1.75rem] md:p-5 dark:border-white/10">
+          <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
             <div>
               <p className="text-sm uppercase tracking-[0.22em] text-slate-400">
                 Dylan Caballero
               </p>
-              <p className="mt-1 text-2xl font-semibold text-white">
+              <p className="mt-1 text-xl font-semibold text-white sm:text-2xl">
                 Career chatbot
               </p>
             </div>
@@ -165,7 +165,7 @@ export default function About() {
 
           <div
             ref={listRef}
-            className="mt-5 h-80 space-y-3 overflow-y-auto rounded-[1.35rem] border border-white/8 bg-white/[0.04] p-4"
+            className="mt-5 h-72 space-y-3 overflow-y-auto rounded-[1.25rem] border border-white/8 bg-white/[0.04] p-3 sm:h-80 sm:rounded-[1.35rem] sm:p-4"
           >
             {messages.map((message) => (
               <div
@@ -175,7 +175,7 @@ export default function About() {
                 }`}
               >
                 <div
-                  className={`max-w-[84%] rounded-[1.35rem] px-4 py-3 text-sm leading-6 ${
+                  className={`max-w-[88%] rounded-[1.2rem] px-4 py-3 text-sm leading-6 sm:max-w-[84%] sm:rounded-[1.35rem] ${
                     message.role === "user"
                       ? "bg-gradient-to-r from-amber-600 to-indigo-700 text-white"
                       : "border border-white/8 bg-white/8 text-slate-100"
@@ -200,7 +200,7 @@ export default function About() {
           >
             <input
               type="text"
-              className="flex-1 rounded-full border border-white/10 bg-white/6 px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400"
+              className="flex-1 rounded-full border border-white/10 bg-white/6 px-5 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400 sm:text-base"
               placeholder="Ask about my experience, IAM work, AI projects, or roles I’m a fit for..."
               value={input}
               onChange={(event) => setInput(event.target.value)}
@@ -208,7 +208,7 @@ export default function About() {
             />
             <button
               type="submit"
-              className="rounded-full bg-white px-6 py-3 font-semibold text-slate-950 disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full rounded-full bg-white px-6 py-3 font-semibold text-slate-950 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
               disabled={!input.trim() || isThinking}
             >
               {isThinking ? "Sending..." : "Send"}

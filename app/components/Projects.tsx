@@ -32,35 +32,35 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-shell px-6 py-8 md:px-10 md:py-10">
+    <section id="projects" className="section-shell px-4 py-6 md:px-10 md:py-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="glass-panel rounded-[2rem] p-6 text-left md:p-8"
+        className="glass-panel rounded-[1.75rem] p-5 text-left md:rounded-[2rem] md:p-8"
       >
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="section-kicker">Selected Work</p>
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 dark:text-white">
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
               A mix of front-end builds, AI applications, and polished product work.
             </h2>
-            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
+            <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
               These projects reflect how I approach implementation: clean UI,
               practical functionality, and products that solve a clear user need.
             </p>
           </div>
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 self-start rounded-full border border-slate-300 bg-white/75 px-5 py-3 text-sm font-semibold text-slate-800 hover:-translate-y-0.5 dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100"
+            className="inline-flex w-full items-center justify-center gap-3 self-start rounded-full border border-slate-300 bg-white/75 px-5 py-3 text-sm font-semibold text-slate-800 hover:-translate-y-0.5 sm:w-auto dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100"
           >
             Start a conversation
             <FaArrowRight />
           </a>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 lg:mt-10 lg:grid-cols-3 lg:gap-6">
           {projects.map((project, index) => (
             <motion.article
               key={project.title}

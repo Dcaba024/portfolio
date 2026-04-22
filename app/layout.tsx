@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-   title: "Dylan Caballero | Front-End Developer",
+   title: "Dylan Caballero | AI Engineer | Software Developer",
   description:
     "Front-End Developer skilled in React, Next.js, and Tailwind. Former Deloitte engineer passionate about sleek UI and modern web experiences.",
   openGraph: {
-    title: "Dylan Caballero | Front-End Developer",
+    title: "Dylan Caballero | AI Engineer | Software Developer",
     description:
-      "Portfolio of Dylan Caballero — React developer and UI specialist based in Florida.",
+      "Portfolio of Dylan Caballero — Software developer and UI specialist based in Florida.",
     url: "https://dylancaballero.dev",
     siteName: "Dylan Caballero Portfolio",
     images: [

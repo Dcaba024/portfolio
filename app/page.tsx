@@ -16,25 +16,25 @@ const highlights = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col pb-8 text-center">
-      <section className="section-shell min-h-screen px-6 pt-6 pb-12 md:px-10 md:pt-10">
-        <div className="glass-panel grid-lines rounded-[2rem] p-6 md:p-8">
+    <main className="flex flex-col pb-24 text-center md:pb-8">
+      <section className="section-shell min-h-screen px-4 pt-4 pb-10 md:px-10 md:pt-10 md:pb-12">
+        <div className="glass-panel grid-lines rounded-[1.75rem] p-5 md:rounded-[2rem] md:p-8">
           <div className="flex flex-col gap-8">
             <header className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
               <div className="text-left">
                 <p className="section-kicker">Dylan Caballero</p>
               </div>
-              <nav className="flex flex-wrap justify-start gap-3 text-sm font-medium text-slate-600 dark:text-slate-300 md:justify-end">
-                <a href="#about" className="rounded-full px-4 py-2 hover:bg-white/60 dark:hover:bg-white/5">
+              <nav className="flex flex-wrap justify-start gap-2 text-xs font-medium text-slate-600 dark:text-slate-300 sm:text-sm md:justify-end">
+                <a href="#about" className="rounded-full px-3 py-2 hover:bg-white/60 dark:hover:bg-white/5 sm:px-4">
                   About
                 </a>
-                <a href="#projects" className="rounded-full px-4 py-2 hover:bg-white/60 dark:hover:bg-white/5">
+                <a href="#projects" className="rounded-full px-3 py-2 hover:bg-white/60 dark:hover:bg-white/5 sm:px-4">
                   Projects
                 </a>
-                <a href="#connect4" className="rounded-full px-4 py-2 hover:bg-white/60 dark:hover:bg-white/5">
+                <a href="#connect4" className="rounded-full px-3 py-2 hover:bg-white/60 dark:hover:bg-white/5 sm:px-4">
                   Playground
                 </a>
-                <a href="#contact" className="rounded-full px-4 py-2 hover:bg-white/60 dark:hover:bg-white/5">
+                <a href="#contact" className="rounded-full px-3 py-2 hover:bg-white/60 dark:hover:bg-white/5 sm:px-4">
                   Contact
                 </a>
               </nav>
@@ -47,13 +47,13 @@ export default function Home() {
               className="grid gap-8 py-8 text-left lg:grid-cols-[1.2fr_0.8fr] lg:items-end"
             >
               <div className="space-y-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-800 dark:text-amber-300">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-800 dark:text-amber-300 sm:text-sm sm:tracking-[0.3em]">
                   Software Engineer • AI Engineer • Front-End Builder
                 </p>
-                <h1 className="max-w-4xl text-5xl font-semibold leading-none tracking-[-0.05em] text-slate-950 md:text-7xl dark:text-white">
+                <h1 className="max-w-4xl text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-slate-950 sm:text-5xl md:text-7xl dark:text-white">
                   Dylan Caballero builds secure, user-focused products for modern web teams.
                 </h1>
-                <p className="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+                <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 dark:text-slate-300">
                   I’m a software engineer with hands-on experience in identity and
                   access management, AI-assisted applications, and polished React
                   interfaces. My work spans secure authentication flows, public-sector
@@ -61,10 +61,10 @@ export default function Home() {
                   for users and dependable for stakeholders.
                 </p>
 
-                <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                   <a
                     href="#projects"
-                    className="inline-flex items-center justify-center gap-3 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/10 hover:-translate-y-0.5 dark:bg-white dark:text-slate-950"
+                    className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/10 hover:-translate-y-0.5 sm:w-auto dark:bg-white dark:text-slate-950"
                   >
                     View projects
                     <FaArrowRight />
@@ -72,7 +72,7 @@ export default function Home() {
                   <a
                     href="/Updated-Resume.pdf"
                     download="Dylan-Caballero-Resume.pdf"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 hover:-translate-y-0.5 hover:border-slate-400 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100"
+                    className="inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 hover:-translate-y-0.5 hover:border-slate-400 sm:w-auto dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100"
                   >
                     Download resume
                   </a>
@@ -80,7 +80,7 @@ export default function Home() {
               </div>
 
               <div className="grid gap-4">
-                <div className="rounded-[1.75rem] border border-white/60 bg-white/80 p-6 text-left shadow-lg shadow-slate-900/5 dark:border-white/10 dark:bg-slate-950/70">
+                <div className="rounded-[1.5rem] border border-white/60 bg-white/80 p-5 text-left shadow-lg shadow-slate-900/5 md:rounded-[1.75rem] md:p-6 dark:border-white/10 dark:bg-slate-950/70">
                   <p className="text-sm uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
                     Snapshot
                   </p>
@@ -88,7 +88,7 @@ export default function Home() {
                     {highlights.map((item) => (
                       <div
                         key={item.label}
-                        className="flex items-center justify-between gap-4 border-b border-slate-200/70 pb-3 last:border-none last:pb-0 dark:border-slate-800"
+                        className="flex flex-col items-start justify-between gap-1 border-b border-slate-200/70 pb-3 last:border-none last:pb-0 min-[400px]:flex-row min-[400px]:items-center min-[400px]:gap-4 dark:border-slate-800"
                       >
                         <span className="text-sm text-slate-500 dark:text-slate-400">
                           {item.label}
@@ -101,11 +101,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="rounded-[1.75rem] border border-indigo-900/10 bg-gradient-to-br from-amber-700 to-indigo-800 p-6 text-left text-white shadow-xl shadow-indigo-950/15">
+                <div className="rounded-[1.5rem] border border-indigo-900/10 bg-gradient-to-br from-amber-700 to-indigo-800 p-5 text-left text-white shadow-xl shadow-indigo-950/15 md:rounded-[1.75rem] md:p-6">
                   <p className="text-sm uppercase tracking-[0.22em] text-white/70">
                     Currently
                   </p>
-                  <p className="mt-3 text-2xl font-semibold leading-tight">
+                  <p className="mt-3 text-xl font-semibold leading-tight sm:text-2xl">
                     Building secure authentication journeys, AI-powered features, and
                     production-ready web experiences.
                   </p>
