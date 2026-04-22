@@ -13,7 +13,7 @@ export default function Footer() {
             href="https://github.com/Dcaba024"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-slate-300 p-3 hover:border-teal-500 hover:text-teal-600 dark:border-white/10 dark:hover:border-teal-400 dark:hover:text-teal-300"
+            className="rounded-full border border-slate-300 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
           >
             <FaGithub size={18} />
           </a>
@@ -21,7 +21,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/dylan-caballero-54963b185/"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-slate-300 p-3 hover:border-teal-500 hover:text-teal-600 dark:border-white/10 dark:hover:border-teal-400 dark:hover:text-teal-300"
+            className="rounded-full border border-slate-300 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
           >
             <FaLinkedin size={18} />
           </a>

@@ -69,7 +69,7 @@ export default function Projects() {
               transition={{ duration: 0.22 }}
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-teal-700 dark:text-teal-300">
+                <span className="text-sm font-semibold text-amber-800 dark:text-amber-300">
                   0{index + 1}
                 </span>
                 <div className="flex gap-3 text-slate-500 dark:text-slate-400">
@@ -77,7 +77,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-slate-200 p-3 hover:border-teal-500 hover:text-teal-600 dark:border-white/10 dark:hover:border-teal-400 dark:hover:text-teal-300"
+                    className="rounded-full border border-slate-200 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
                   >
                     <FaGithub size={18} />
                   </a>
@@ -85,7 +85,7 @@ export default function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-slate-200 p-3 hover:border-teal-500 hover:text-teal-600 dark:border-white/10 dark:hover:border-teal-400 dark:hover:text-teal-300"
+                    className="rounded-full border border-slate-200 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
                   >
                     <FaExternalLinkAlt size={16} />
                   </a>

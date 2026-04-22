@@ -158,7 +158,7 @@ export default function About() {
                 Career chatbot
               </p>
             </div>
-            <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+            <span className="rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-semibold text-amber-300">
               Live
             </span>
           </div>
@@ -177,7 +177,7 @@ export default function About() {
                 <div
                   className={`max-w-[84%] rounded-[1.35rem] px-4 py-3 text-sm leading-6 ${
                     message.role === "user"
-                      ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-white"
+                      ? "bg-gradient-to-r from-amber-600 to-indigo-700 text-white"
                       : "border border-white/8 bg-white/8 text-slate-100"
                   }`}
                 >
@@ -200,7 +200,7 @@ export default function About() {
           >
             <input
               type="text"
-              className="flex-1 rounded-full border border-white/10 bg-white/6 px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="flex-1 rounded-full border border-white/10 bg-white/6 px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400"
               placeholder="Ask about my experience, IAM work, AI projects, or roles I’m a fit for..."
               value={input}
               onChange={(event) => setInput(event.target.value)}

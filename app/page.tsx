@@ -47,7 +47,7 @@ export default function Home() {
               className="grid gap-8 py-8 text-left lg:grid-cols-[1.2fr_0.8fr] lg:items-end"
             >
               <div className="space-y-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-700 dark:text-teal-300">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-800 dark:text-amber-300">
                   Software Engineer • IAM Engineer • Front-End Builder
                 </p>
                 <h1 className="max-w-4xl text-5xl font-semibold leading-none tracking-[-0.05em] text-slate-950 md:text-7xl dark:text-white">
@@ -70,8 +70,8 @@ export default function Home() {
                     <FaArrowRight />
                   </a>
                   <a
-                    href="/resume.pdf"
-                    target="_blank"
+                    href="/Updated-Resume.pdf"
+                    download="Dylan-Caballero-Resume.pdf"
                     className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 hover:-translate-y-0.5 hover:border-slate-400 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100"
                   >
                     Download resume
@@ -101,7 +101,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="rounded-[1.75rem] border border-teal-900/10 bg-gradient-to-br from-teal-600 to-cyan-700 p-6 text-left text-white shadow-xl shadow-teal-900/15">
+                <div className="rounded-[1.75rem] border border-indigo-900/10 bg-gradient-to-br from-amber-700 to-indigo-800 p-6 text-left text-white shadow-xl shadow-indigo-950/15">
                   <p className="text-sm uppercase tracking-[0.22em] text-white/70">
                     Currently
                   </p>

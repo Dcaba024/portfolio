@@ -178,13 +178,13 @@ export default function Connect4() {
                     Connect 4 arena
                   </p>
                 </div>
-                <span className="rounded-full border border-orange-500/20 bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-600 dark:text-orange-300">
+                <span className="rounded-full border border-amber-500/20 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">
                   Live
                 </span>
               </div>
 
               <div className="mt-5 rounded-[1.5rem] bg-slate-950 p-4 shadow-inner dark:bg-slate-900">
-                <div className="grid grid-rows-6 gap-2 rounded-[1.25rem] bg-cyan-700/90 p-3">
+                <div className="grid grid-rows-6 gap-2 rounded-[1.25rem] bg-indigo-800/90 p-3">
                   {board.map((row, rowIndex) => (
                     <div key={rowIndex} className="grid grid-cols-7 gap-2">
                       {row.map((cell, colIndex) => {

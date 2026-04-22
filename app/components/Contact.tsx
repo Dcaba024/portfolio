@@ -72,7 +72,7 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="rounded-[1.75rem] bg-gradient-to-br from-teal-600 to-cyan-700 p-6 text-white shadow-xl shadow-teal-900/15">
+          <div className="rounded-[1.75rem] bg-gradient-to-br from-amber-700 to-indigo-800 p-6 text-white shadow-xl shadow-indigo-950/15">
             <p className="text-sm uppercase tracking-[0.2em] text-white/70">
               What you can expect
             </p>
@@ -91,7 +91,7 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full rounded-[1.15rem] border border-slate-200 bg-white/85 px-4 py-3 text-slate-900 outline-none focus:border-teal-500 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
+              className="w-full rounded-[1.15rem] border border-slate-200 bg-white/85 px-4 py-3 text-slate-900 outline-none focus:border-amber-600 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
             />
             <input
               name="email"
@@ -100,7 +100,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full rounded-[1.15rem] border border-slate-200 bg-white/85 px-4 py-3 text-slate-900 outline-none focus:border-teal-500 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
+              className="w-full rounded-[1.15rem] border border-slate-200 bg-white/85 px-4 py-3 text-slate-900 outline-none focus:border-amber-600 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
             />
           </div>
 
@@ -111,14 +111,17 @@ export default function Contact() {
             value={formData.message}
             onChange={handleChange}
             required
-            className="w-full rounded-[1.35rem] border border-slate-200 bg-white/85 px-4 py-4 text-slate-900 outline-none focus:border-teal-500 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
+            className="w-full rounded-[1.35rem] border border-slate-200 bg-white/85 px-4 py-4 text-slate-900 outline-none focus:border-amber-600 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
           />
 
-          <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-            size="invisible"
-            ref={recaptchaRef}
-          />
+          <div className="fixed right-4 bottom-4 z-50">
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+              size="invisible"
+              badge="inline"
+              ref={recaptchaRef}
+            />
+          </div>
 
           <button
             type="submit"
