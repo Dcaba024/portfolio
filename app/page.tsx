@@ -48,7 +48,7 @@ export default function Home() {
             >
               <div className="space-y-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-800 dark:text-amber-300">
-                  Software Engineer • IAM Engineer • Front-End Builder
+                  Software Engineer • AI Engineer • Front-End Builder
                 </p>
                 <h1 className="max-w-4xl text-5xl font-semibold leading-none tracking-[-0.05em] text-slate-950 md:text-7xl dark:text-white">
                   Dylan Caballero builds secure, user-focused products for modern web teams.
