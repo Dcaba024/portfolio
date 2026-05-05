@@ -8,7 +8,7 @@ Contact: CaballeroDylan96@gmail.com | (954) 589-3197 | linkedin.com/in/dylan-cab
 Summary:
 - Software Engineer and AI Engineer with 5 years of experience guiding enterprise modernization projects for Texas.gov and TXDMV at Deloitte.
 - Expert in Agile project execution, sprint planning, stakeholder communication, risk mitigation, WCAG accessibility, and production readiness.
-- Comfortable translating between product, engineering, QA, and design partners while coordinating CI/CD releases and AI-assisted workflows.
+- Comfortable translating between product, engineering, QA, and design partners while coordinating CI/CD releases, Java/Spring Boot backend work, and AI-assisted workflows.
 
 AI Agents & OpenAI Expertise:
 - Builds AI agents for workflow automation, data extraction, and decision support.
@@ -17,7 +17,7 @@ AI Agents & OpenAI Expertise:
 
 Core Strengths:
 - Project Management: Agile/Scrum, backlog prioritization, requirements gathering, change management, documentation, cross-team coordination.
-- Technical Fluency: Next.js, React, TypeScript, HTML/CSS, Tailwind, Node.js, REST APIs, Contentful, CI/CD, GitHub Actions, Vercel, Google Cloud tools.
+- Technical Fluency: Next.js, React, TypeScript, HTML/CSS, Tailwind, Node.js, Java, Spring Boot, REST APIs, Contentful, CI/CD, GitHub Actions, Vercel, Google Cloud tools.
 - Quality and Delivery: QA collaboration, test-plan support, defect triage, accessibility (WCAG 2.1/2.2), incident response, debugging oversight.
 - Tools: Jira, Confluence, Trello, Notion, Git, GitHub, Vercel, VS Code, ChatGPT, GitHub Copilot.
 
@@ -26,16 +26,17 @@ Professional Experience:
   * Leads large React/Next.js projects serving millions of residents.
   * Oversees requirements, acceptance criteria, sprint planning, and cross-team collaboration.
   * Drives accessibility compliance, reusable UI systems, CI/CD coordination, and production incident response.
+  * Contributes to Java/Spring Boot backend services, REST API integrations, and full-stack delivery when project needs require backend support.
   * Partners with QA for coverage, test validation, release quality, and documentation updates.
   * Applies AI tools for documentation, risk identification, and workflow acceleration.
 
 Projects:
-- AI Resume Analyzer: Full-stack resume scoring platform using React, Node.js, and OpenAI APIs. Owned roadmap, sprint planning, prioritization, and user testing.
+- AI Resume Analyzer: Full-stack resume scoring platform using React, Node.js, backend REST APIs, and OpenAI APIs. Owned roadmap, sprint planning, prioritization, and user testing.
 - DillyDidIt: Sports prediction social app concept. Managed backlog, user flows, architecture planning, and iterative releases.
 - Portfolio Website: Planned, designed, and deployed a WCAG-compliant Next.js portfolio on Vercel.
 
 Education:
-- B.S. in Computer Science, Florida International University, 2020.
+- B.A. in Computer Science, Florida International University, 2020.
 
 Working Style & Availability:
 - Works best with collaborative squads of 6–10 (PM, designer, accessibility, engineers, QA).

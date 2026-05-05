@@ -77,6 +77,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${project.title} GitHub repository`}
                     className="rounded-full border border-slate-200 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
                   >
                     <FaGithub size={18} />
@@ -85,6 +86,7 @@ export default function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${project.title} live demo`}
                     className="rounded-full border border-slate-200 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
                   >
                     <FaExternalLinkAlt size={16} />
