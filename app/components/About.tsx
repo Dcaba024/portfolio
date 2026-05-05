@@ -148,7 +148,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="rounded-[1.5rem] border border-slate-200/30 bg-slate-950 p-4 shadow-2xl shadow-slate-950/10 md:rounded-[1.75rem] md:p-5 dark:border-white/10">
+        <div className="h-fit self-start rounded-[1.5rem] border border-slate-200/30 bg-slate-950 p-4 shadow-2xl shadow-slate-950/10 md:rounded-[1.75rem] md:p-5 dark:border-white/10">
           <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
             <div>
               <p className="text-sm uppercase tracking-[0.22em] text-slate-400">
@@ -165,7 +165,7 @@ export default function About() {
 
           <div
             ref={listRef}
-            className="mt-5 h-72 space-y-3 overflow-y-auto rounded-[1.25rem] border border-white/8 bg-white/[0.04] p-3 sm:h-80 sm:rounded-[1.35rem] sm:p-4"
+            className="mt-5 h-60 space-y-3 overflow-y-auto rounded-[1.25rem] border border-white/8 bg-white/[0.04] p-3 sm:h-72 sm:rounded-[1.35rem] sm:p-4"
           >
             {messages.map((message) => (
               <div
