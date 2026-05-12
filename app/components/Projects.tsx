@@ -21,12 +21,12 @@ const projects = [
     demo: "https://cardboardkings.org",
   },
   {
-    title: "Heart Warming Request",
+    title: "Spring Boot Task Manager",
     description:
-      "A small surprise experience built around a playful reveal, designed to make a simple interaction feel memorable.",
-    tech: ["React", "Tailwind", "Vercel"],
-    github: "https://github.com/Dcaba024/GodParents",
-    demo: "https://surprise-coral-gamma.vercel.app/",
+      "A CRUD task management app with a Spring Boot backend for creating, updating, tracking, and deleting tasks.",
+    tech: ["Spring Boot", "Java", "CRUD"],
+    github: "https://github.com/Dcaba024/spring-task-manager",
+    demo: "https://spring-task-manager.vercel.app/",
   },
 ];
 
@@ -73,15 +73,17 @@ export default function Projects() {
                   0{index + 1}
                 </span>
                 <div className="flex gap-3 text-slate-500 dark:text-slate-400">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${project.title} GitHub repository`}
-                    className="rounded-full border border-slate-200 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
-                  >
-                    <FaGithub size={18} />
-                  </a>
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.title} GitHub repository`}
+                      className="rounded-full border border-slate-200 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
+                    >
+                      <FaGithub size={18} />
+                    </a>
+                  ) : null}
                   <a
                     href={project.demo}
                     target="_blank"

@@ -18,7 +18,7 @@ describe("Projects", () => {
 
     expect(screen.getByText("Resume Analyzer")).toBeInTheDocument();
     expect(screen.getByText("Cardboard Kings")).toBeInTheDocument();
-    expect(screen.getByText("Heart Warming Request")).toBeInTheDocument();
+    expect(screen.getByText("Spring Boot Task Manager")).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /start a conversation/i })
     ).toHaveAttribute("href", "#contact");
@@ -42,12 +42,12 @@ describe("Projects", () => {
     ).toHaveAttribute("href", "https://cardboardkings.org");
 
     expect(
-      screen.getByRole("link", {
-        name: /heart warming request github repository/i,
-      })
-    ).toHaveAttribute("href", "https://github.com/Dcaba024/GodParents");
+      screen.getByRole("link", { name: /spring boot task manager live demo/i })
+    ).toHaveAttribute("href", "https://spring-task-manager.vercel.app/");
     expect(
-      screen.getByRole("link", { name: /heart warming request live demo/i })
-    ).toHaveAttribute("href", "https://surprise-coral-gamma.vercel.app/");
+      screen.queryByRole("link", {
+        name: /spring boot task manager github repository/i,
+      })
+    ).not.toBeInTheDocument();
   });
 });
