@@ -37,16 +37,21 @@ describe("Home resume download", () => {
 
     const resumeLink = screen.getByRole("link", { name: /download resume/i });
 
-    expect(resumeLink).toHaveAttribute("href", "/UpdatedResume.pdf");
+    expect(resumeLink).toHaveAttribute(
+      "href",
+      "/Dylan-Caballero-AI-Resume.pdf"
+    );
     expect(resumeLink).toHaveAttribute(
       "download",
-      "Dylan-Caballero-Resume.pdf"
+      "Dylan-Caballero-AI-Resume.pdf"
     );
   });
 
   it("keeps the linked resume PDF available in the public folder", () => {
     expect(
-      existsSync(join(process.cwd(), "public", "UpdatedResume.pdf"))
+      existsSync(
+        join(process.cwd(), "public", "Dylan-Caballero-AI-Resume.pdf")
+      )
     ).toBe(true);
   });
 });
