@@ -17,6 +17,7 @@ describe("Projects", () => {
     render(<Projects />);
 
     expect(screen.getByText("Resume Analyzer")).toBeInTheDocument();
+    expect(screen.getByText("AI Automation")).toBeInTheDocument();
     expect(screen.getByText("Cardboard Kings")).toBeInTheDocument();
     expect(screen.getByText("Spring Boot Task Manager")).toBeInTheDocument();
     expect(
@@ -45,9 +46,12 @@ describe("Projects", () => {
       screen.getByRole("link", { name: /spring boot task manager live demo/i })
     ).toHaveAttribute("href", "https://spring-task-manager.vercel.app/");
     expect(
-      screen.queryByRole("link", {
+      screen.getByRole("link", {
         name: /spring boot task manager github repository/i,
       })
-    ).not.toBeInTheDocument();
+    ).toHaveAttribute(
+      "href",
+      "https://github.com/Dcaba024/spring-task-manager"
+    );
   });
 });

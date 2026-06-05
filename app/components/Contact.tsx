@@ -65,11 +65,11 @@ export default function Contact() {
             <div>
               <p className="section-kicker">Contact</p>
               <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
-                Hiring, collaborating, or staffing an engineering role? Let’s connect.
+                Building an AI product or automating a workflow? Let’s connect.
               </h2>
               <p className="mt-4 max-w-md text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
-                I’m open to conversations about software engineering, front-end,
-                IAM, and AI-focused opportunities where secure product delivery matters.
+                I’m open to software engineering, AI automation, and IAM opportunities
+                where reliable systems and useful product experiences matter.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ export default function Contact() {
                 What you can expect
               </p>
               <p className="mt-3 text-base font-semibold leading-7 sm:text-lg sm:leading-8">
-                Strong communication, thoughtful execution, and an engineering mindset grounded in both user experience and reliability.
+                Full-stack delivery, practical AI integration, and automation designed around measurable user and business needs.
               </p>
             </div>
           </div>

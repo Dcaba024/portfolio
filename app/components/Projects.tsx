@@ -7,8 +7,8 @@ const projects = [
   {
     title: "Resume Analyzer",
     description:
-      "An AI-driven app that compares resumes against job descriptions and returns match scores with practical feedback.",
-    tech: ["Next.js", "OpenAI API", "Tailwind"],
+      "An automated AI scoring pipeline that extracts resume context, compares it with job requirements, and returns match scores with actionable feedback.",
+    tech: ["Next.js", "OpenAI API", "AI Automation"],
     github: "https://github.com/Dcaba024/Resume-Analyzer",
     demo: "https://resume-analyzer-woad.vercel.app/",
   },
@@ -44,11 +44,11 @@ export default function Projects() {
           <div className="max-w-2xl">
             <p className="section-kicker">Selected Work</p>
             <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
-              A mix of front-end builds, AI applications, and polished product work.
+              AI automations, full-stack applications, and production-ready product work.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
-              These projects reflect how I approach implementation: clean UI,
-              practical functionality, and products that solve a clear user need.
+              These projects show how I connect interfaces, APIs, data, and AI to
+              automate decisions, reduce manual work, and solve clear user needs.
             </p>
           </div>
           <a

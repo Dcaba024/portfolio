@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dylancaballero.dev"),
-  title: "Dylan Caballero | Full-Stack Software Engineer",
+  title: "Dylan Caballero | AI Automation & Full-Stack Engineer",
   description:
-    "Full-stack software engineer skilled in React, Next.js, Java, Spring Boot, IAM, and AI-assisted product development.",
+    "AI automation and full-stack engineer building agents, workflow automations, OpenAI integrations, secure IAM experiences, and production web applications.",
   openGraph: {
-    title: "Dylan Caballero | Full-Stack Software Engineer",
+    title: "Dylan Caballero | AI Automation & Full-Stack Engineer",
     description:
-      "Portfolio of Dylan Caballero — full-stack software engineer focused on secure web products, Java/Spring Boot backends, React interfaces, IAM, and AI features.",
+      "Portfolio of Dylan Caballero, an engineer focused on AI agents, workflow automation, OpenAI integrations, secure IAM products, and full-stack delivery.",
     url: "https://dylancaballero.dev",
     siteName: "Dylan Caballero Portfolio",
     images: [

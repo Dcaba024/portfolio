@@ -10,9 +10,9 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 const highlights = [
-  { label: "Specialty", value: "IAM, AI, and front-end delivery" },
-  { label: "Experience", value: "Texas.gov and TXDMV programs" },
-  { label: "Core stack", value: "Next.js, React, Java, Spring Boot, OpenAI" },
+  { label: "AI systems", value: "Agents, prompts, scoring, and evaluation" },
+  { label: "Automation", value: "Workflows, extraction, and decision support" },
+  { label: "Core stack", value: "Next.js, React, Java, Spring Boot, OpenAI APIs" },
 ];
 
 export default function Home() {
@@ -48,7 +48,7 @@ export default function Home() {
               className="grid gap-8 py-6 text-left lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-center lg:gap-x-12 lg:gap-y-7 lg:py-10 xl:grid-cols-[minmax(0,1fr)_22rem]"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-800 dark:text-amber-300 sm:text-sm sm:tracking-[0.3em] lg:col-start-1 lg:row-start-1">
-                Software Engineer • AI Engineer • Full-Stack Builder
+                Software Engineer • AI Automation Engineer • Full-Stack Builder
               </p>
 
               <aside className="mx-auto grid w-full max-w-xs gap-4 sm:max-w-sm lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none">
@@ -69,8 +69,8 @@ export default function Home() {
                       Currently
                     </p>
                     <p className="mt-2 text-base font-semibold leading-7">
-                      Building secure authentication journeys, AI-powered
-                      features, and production-ready web experiences.
+                      Building secure authentication journeys, AI agents, and
+                      automated workflows that move products and teams faster.
                     </p>
                   </div>
                   <div className="flex gap-3 lg:mt-4">
@@ -99,13 +99,13 @@ export default function Home() {
               <div className="space-y-7 lg:col-start-1 lg:row-start-2">
                 <div className="space-y-5">
                   <h1 className="max-w-4xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-slate-950 sm:text-5xl md:text-6xl xl:text-7xl dark:text-white">
-                    Building secure, useful web products with clean interfaces and dependable systems.
+                    Building intelligent products and automations that turn complex work into reliable workflows.
                   </h1>
                   <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 dark:text-slate-300">
                     I’m Dylan Caballero, a software engineer with hands-on
-                    experience across identity and access management, AI-assisted
-                    applications, Java/Spring Boot backends, and polished React
-                    interfaces.
+                    experience across identity and access management, AI agents,
+                    workflow automation, Java/Spring Boot backends, and polished
+                    React interfaces.
                   </p>
                 </div>
 

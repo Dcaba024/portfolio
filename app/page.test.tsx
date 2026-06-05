@@ -66,6 +66,16 @@ describe("Home project navigation", () => {
   });
 });
 
+describe("Home AI automation positioning", () => {
+  it("highlights AI agents and workflow automation", () => {
+    render(<Home />);
+
+    expect(screen.getByText(/ai automation engineer/i)).toBeInTheDocument();
+    expect(screen.getByText(/agents, prompts, scoring, and evaluation/i)).toBeInTheDocument();
+    expect(screen.getByText(/workflows, extraction, and decision support/i)).toBeInTheDocument();
+  });
+});
+
 describe("Home profile image", () => {
   it("renders Dylan's profile image on the home screen", () => {
     render(<Home />);
