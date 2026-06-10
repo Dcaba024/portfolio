@@ -39,18 +39,22 @@ describe("Home resume download", () => {
 
     expect(resumeLink).toHaveAttribute(
       "href",
-      "/Dylan-Caballero-AI-Resume.pdf"
+      "/Dylan-Caballero-FullStack-Resume-Improved.pdf"
     );
     expect(resumeLink).toHaveAttribute(
       "download",
-      "Dylan-Caballero-AI-Resume.pdf"
+      "Dylan-Caballero-FullStack-Resume-Improved.pdf"
     );
   });
 
   it("keeps the linked resume PDF available in the public folder", () => {
     expect(
       existsSync(
-        join(process.cwd(), "public", "Dylan-Caballero-AI-Resume.pdf")
+        join(
+          process.cwd(),
+          "public",
+          "Dylan-Caballero-FullStack-Resume-Improved.pdf"
+        )
       )
     ).toBe(true);
   });

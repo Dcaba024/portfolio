@@ -118,8 +118,8 @@ export default function Home() {
                     <FaArrowRight />
                   </a>
                   <a
-                    href="/Dylan-Caballero-AI-Resume.pdf"
-                    download="Dylan-Caballero-AI-Resume.pdf"
+                    href="/Dylan-Caballero-FullStack-Resume-Improved.pdf"
+                    download="Dylan-Caballero-FullStack-Resume-Improved.pdf"
                     className="inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 hover:-translate-y-0.5 hover:border-slate-400 sm:w-auto dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100"
                   >
                     Download resume
