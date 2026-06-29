@@ -19,13 +19,14 @@ describe("Projects", () => {
     expect(screen.getByText("Resume Analyzer")).toBeInTheDocument();
     expect(screen.getByText("AI Automation")).toBeInTheDocument();
     expect(screen.getByText("Cardboard Kings")).toBeInTheDocument();
-    expect(screen.getByText("Spring Boot Task Manager")).toBeInTheDocument();
+    expect(screen.getByText("BabyDaddy.com")).toBeInTheDocument();
+    expect(screen.queryByText("Spring Boot Task Manager")).not.toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /start a conversation/i })
     ).toHaveAttribute("href", "#contact");
   });
 
-  it("renders GitHub and live demo links for each project", () => {
+  it("renders GitHub and live demo links for selected projects", () => {
     render(<Projects />);
 
     expect(
@@ -43,15 +44,12 @@ describe("Projects", () => {
     ).toHaveAttribute("href", "https://cardboardkings.org");
 
     expect(
-      screen.getByRole("link", { name: /spring boot task manager live demo/i })
-    ).toHaveAttribute("href", "https://spring-task-manager.vercel.app/");
+      screen.getByRole("link", { name: /babydaddy\.com live demo/i })
+    ).toHaveAttribute("href", "https://babbydaddy.vercel.app/");
     expect(
-      screen.getByRole("link", {
-        name: /spring boot task manager github repository/i,
+      screen.queryByRole("link", {
+        name: /babydaddy\.com github repository/i,
       })
-    ).toHaveAttribute(
-      "href",
-      "https://github.com/Dcaba024/spring-task-manager"
-    );
+    ).not.toBeInTheDocument();
   });
 });

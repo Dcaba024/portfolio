@@ -21,12 +21,12 @@ const projects = [
     demo: "https://cardboardkings.org",
   },
   {
-    title: "Spring Boot Task Manager",
+    title: "BabyDaddy.com",
     description:
-      "A CRUD task management app with a Spring Boot backend for creating, updating, tracking, and deleting tasks.",
-    tech: ["Spring Boot", "Java", "CRUD"],
-    github: "https://github.com/Dcaba024/spring-task-manager",
-    demo: "https://spring-task-manager.vercel.app/",
+      "An AI legal-guidance agent for fathers who cannot afford a lawyer and are fighting for custody rights, helping them understand options, organize case details, and prepare next steps.",
+    tech: ["Web App", "Responsive UI", "Vercel"],
+    github: "https://github.com/Dcaba024/babydaddy",
+    demo: "https://babbydaddy.vercel.app/",
   },
 ];
 
