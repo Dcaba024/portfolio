@@ -1,6 +1,6 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "./page";
 
 vi.mock("framer-motion", () => ({
@@ -20,15 +20,65 @@ vi.mock("./components/Connect4", () => ({
 }));
 
 vi.mock("./components/Projects", () => ({
-  default: () => <section data-testid="projects" />,
+  default: ({
+    sectionRef,
+    isSpotlighted,
+  }: {
+    sectionRef?: React.Ref<HTMLElement>;
+    isSpotlighted?: boolean;
+  }) => (
+    <section
+      ref={sectionRef}
+      tabIndex={-1}
+      data-testid="projects"
+      className={isSpotlighted ? "ring-4" : ""}
+    />
+  ),
 }));
 
 vi.mock("./components/Contact", () => ({
-  default: () => <section data-testid="contact" />,
+  default: ({
+    formRef,
+    isSpotlighted,
+  }: {
+    formRef?: React.Ref<HTMLFormElement>;
+    isSpotlighted?: boolean;
+  }) => (
+    <form
+      ref={formRef}
+      tabIndex={-1}
+      data-testid="contact-form"
+      className={isSpotlighted ? "ring-4" : ""}
+    />
+  ),
 }));
 
 vi.mock("./components/Footer", () => ({
   default: () => <footer data-testid="footer" />,
+}));
+
+vi.mock("./components/FloatingChatbot", () => ({
+  default: ({
+    onResumeRequest,
+    onContactRequest,
+    onProjectsRequest,
+  }: {
+    onResumeRequest?: () => void;
+    onContactRequest?: () => void;
+    onProjectsRequest?: () => void;
+  }) => (
+    <div data-testid="floating-chatbot">
+      <button type="button" onClick={onResumeRequest}>
+        Mock resume request
+      </button>
+      <button type="button" onClick={onContactRequest}>
+        Mock contact request
+      </button>
+      <button type="button" onClick={onProjectsRequest}>
+        Mock projects request
+      </button>
+    </div>
+  ),
 }));
 
 describe("Home resume download", () => {
@@ -57,6 +107,53 @@ describe("Home resume download", () => {
         )
       )
     ).toBe(true);
+  });
+});
+
+describe("Home floating chatbot", () => {
+  it("renders the site-level chatbot", () => {
+    render(<Home />);
+
+    expect(screen.getByTestId("floating-chatbot")).toBeInTheDocument();
+  });
+
+  it("spotlights the resume button when the chatbot handles a resume request", () => {
+    render(<Home />);
+
+    const resumeLink = screen.getByRole("link", { name: /download resume/i });
+    fireEvent.click(screen.getByRole("button", { name: /mock resume request/i }));
+
+    expect(resumeLink).toHaveClass("ring-4");
+    expect(resumeLink).toHaveFocus();
+    expect(
+      screen.getByTestId("resume-spotlight-overlay").getAttribute("style")
+    ).toContain("radial-gradient");
+  });
+
+  it("spotlights the contact form when the chatbot handles a contact request", () => {
+    render(<Home />);
+
+    const contactForm = screen.getByTestId("contact-form");
+    fireEvent.click(screen.getByRole("button", { name: /mock contact request/i }));
+
+    expect(contactForm).toHaveClass("ring-4");
+    expect(contactForm).toHaveFocus();
+    expect(
+      screen.getByTestId("contact-spotlight-overlay").getAttribute("style")
+    ).toContain("radial-gradient");
+  });
+
+  it("spotlights the projects section when the chatbot handles a projects request", () => {
+    render(<Home />);
+
+    const projectsSection = screen.getByTestId("projects");
+    fireEvent.click(screen.getByRole("button", { name: /mock projects request/i }));
+
+    expect(projectsSection).toHaveClass("ring-4");
+    expect(projectsSection).toHaveFocus();
+    expect(
+      screen.getByTestId("projects-spotlight-overlay").getAttribute("style")
+    ).toContain("radial-gradient");
   });
 });
 

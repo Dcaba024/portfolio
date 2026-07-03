@@ -1,11 +1,22 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import {
+  type ChangeEvent,
+  type FormEvent,
+  type Ref,
+  useRef,
+  useState,
+} from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 
-export default function Contact() {
+type ContactProps = {
+  formRef?: Ref<HTMLFormElement>;
+  isSpotlighted?: boolean;
+};
+
+export default function Contact({ formRef, isSpotlighted = false }: ContactProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -83,7 +94,16 @@ export default function Contact() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form
+            ref={formRef}
+            tabIndex={-1}
+            onSubmit={handleSubmit}
+            className={`space-y-4 rounded-[1.5rem] transition ${
+              isSpotlighted
+                ? "relative z-[85] p-2 ring-4 ring-amber-300 ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
+                : ""
+            }`}
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 name="name"

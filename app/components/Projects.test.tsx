@@ -47,9 +47,17 @@ describe("Projects", () => {
       screen.getByRole("link", { name: /babydaddy\.com live demo/i })
     ).toHaveAttribute("href", "https://babbydaddy.vercel.app/");
     expect(
-      screen.queryByRole("link", {
+      screen.getByRole("link", {
         name: /babydaddy\.com github repository/i,
       })
-    ).not.toBeInTheDocument();
+    ).toHaveAttribute("href", "https://github.com/Dcaba024/babydaddy");
+  });
+
+  it("can receive a spotlight state from the page", () => {
+    render(<Projects isSpotlighted />);
+
+    expect(screen.getByRole("region", { name: /selected work/i })).toHaveClass(
+      "ring-4"
+    );
   });
 });

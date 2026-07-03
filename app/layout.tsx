@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Dylan Caballero | AI Automation & Full-Stack Engineer",
   description:
     "AI automation and full-stack engineer building agents, workflow automations, OpenAI integrations, secure IAM experiences, and production web applications.",
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     title: "Dylan Caballero | AI Automation & Full-Stack Engineer",
     description:

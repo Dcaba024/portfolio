@@ -1,5 +1,6 @@
 "use client";
 
+import { type Ref } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
@@ -30,9 +31,27 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+type ProjectsProps = {
+  sectionRef?: Ref<HTMLElement>;
+  isSpotlighted?: boolean;
+};
+
+export default function Projects({
+  sectionRef,
+  isSpotlighted = false,
+}: ProjectsProps) {
   return (
-    <section id="projects" className="section-shell px-4 py-6 md:px-10 md:py-10">
+    <section
+      ref={sectionRef}
+      id="projects"
+      aria-label="Selected Work"
+      tabIndex={-1}
+      className={`section-shell px-4 py-6 transition focus:outline-none md:px-10 md:py-10 ${
+        isSpotlighted
+          ? "relative z-[85] rounded-[2rem] ring-4 ring-amber-300 ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
+          : ""
+      }`}
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

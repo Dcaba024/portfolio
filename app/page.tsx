@@ -1,5 +1,12 @@
 "use client";
 
+import {
+  type CSSProperties,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa";
@@ -8,6 +15,7 @@ import Connect4 from "./components/Connect4";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import FloatingChatbot from "./components/FloatingChatbot";
 
 const highlights = [
   { label: "AI systems", value: "Agents, prompts, scoring, and evaluation" },
@@ -15,7 +23,117 @@ const highlights = [
   { label: "Core stack", value: "Next.js, React, Java, Spring Boot, OpenAI APIs" },
 ];
 
+type SpotlightTarget = "resume" | "contact" | "projects";
+
+type Spotlight = {
+  x: number;
+  y: number;
+  radius: number;
+  target: SpotlightTarget;
+};
+
 export default function Home() {
+  const [activeSpotlightTarget, setActiveSpotlightTarget] =
+    useState<SpotlightTarget | null>(null);
+  const [spotlight, setSpotlight] = useState<Spotlight | null>(null);
+  const resumeLinkRef = useRef<HTMLAnchorElement>(null);
+  const contactFormRef = useRef<HTMLFormElement>(null);
+  const projectsSectionRef = useRef<HTMLElement>(null);
+  const spotlightTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const spotlightMeasureTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const spotlightFrame = useRef<number | null>(null);
+
+  const getSpotlightElement = useCallback((target: SpotlightTarget) => {
+    if (target === "resume") return resumeLinkRef.current;
+    if (target === "contact") return contactFormRef.current;
+    return projectsSectionRef.current;
+  }, []);
+
+  const updateSpotlight = useCallback(
+    (target: SpotlightTarget) => {
+      const element = getSpotlightElement(target);
+      if (!element) return;
+
+      const rect = element.getBoundingClientRect();
+      setSpotlight({
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+        radius: Math.max(rect.width, rect.height) * 0.72 + 56,
+        target,
+      });
+    },
+    [getSpotlightElement]
+  );
+
+  useEffect(() => {
+    return () => {
+      if (spotlightTimer.current) {
+        clearTimeout(spotlightTimer.current);
+      }
+
+      spotlightMeasureTimers.current.forEach((timer) => clearTimeout(timer));
+
+      if (spotlightFrame.current) {
+        cancelAnimationFrame(spotlightFrame.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!activeSpotlightTarget) return;
+
+    const syncSpotlight = () => updateSpotlight(activeSpotlightTarget);
+
+    window.addEventListener("resize", syncSpotlight);
+    window.addEventListener("scroll", syncSpotlight, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", syncSpotlight);
+      window.removeEventListener("scroll", syncSpotlight);
+    };
+  }, [activeSpotlightTarget, updateSpotlight]);
+
+  const spotlightTarget = (target: SpotlightTarget) => {
+    const element = getSpotlightElement(target);
+    if (!element) return;
+
+    setActiveSpotlightTarget(target);
+    element.scrollIntoView?.({
+      behavior: "smooth",
+      block: "center",
+    });
+    element.focus({ preventScroll: true });
+    updateSpotlight(target);
+
+    if (spotlightTimer.current) {
+      clearTimeout(spotlightTimer.current);
+    }
+
+    spotlightMeasureTimers.current.forEach((timer) => clearTimeout(timer));
+
+    if (spotlightFrame.current) {
+      cancelAnimationFrame(spotlightFrame.current);
+    }
+
+    spotlightFrame.current = window.requestAnimationFrame(() =>
+      updateSpotlight(target)
+    );
+    spotlightMeasureTimers.current = [280, 650].map((delay) =>
+      setTimeout(() => updateSpotlight(target), delay)
+    );
+
+    spotlightTimer.current = setTimeout(() => {
+      setActiveSpotlightTarget(null);
+      setSpotlight(null);
+    }, 6000);
+  };
+
+  const spotlightStyle: CSSProperties | undefined = spotlight
+    ? {
+        background: `radial-gradient(circle ${spotlight.radius}px at ${spotlight.x}px ${spotlight.y}px, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0) 46%, rgba(2, 6, 23, 0.62) 70%, rgba(2, 6, 23, 0.9) 100%)`,
+      }
+    : undefined;
+
   return (
     <main className="flex flex-col pb-24 text-center md:pb-8">
       <section className="section-shell min-h-screen px-4 pt-4 pb-10 md:px-10 md:pt-10 md:pb-12">
@@ -118,9 +236,14 @@ export default function Home() {
                     <FaArrowRight />
                   </a>
                   <a
+                    ref={resumeLinkRef}
                     href="/Dylan-Caballero-FullStack-Resume-Improved.pdf"
                     download="Dylan-Caballero-FullStack-Resume-Improved.pdf"
-                    className="inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 hover:-translate-y-0.5 hover:border-slate-400 sm:w-auto dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100"
+                    className={`inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-400 focus:outline-none focus:ring-4 focus:ring-amber-300/80 sm:w-auto dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 ${
+                      activeSpotlightTarget === "resume"
+                        ? "relative z-[85] animate-pulse ring-4 ring-amber-300 ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
+                        : ""
+                    }`}
                   >
                     Download resume
                   </a>
@@ -148,9 +271,28 @@ export default function Home() {
       </section>
       <About />
       <Connect4 />
-      <Projects />
-      <Contact />
+      <Projects
+        sectionRef={projectsSectionRef}
+        isSpotlighted={activeSpotlightTarget === "projects"}
+      />
+      <Contact
+        formRef={contactFormRef}
+        isSpotlighted={activeSpotlightTarget === "contact"}
+      />
       <Footer />
+      {spotlight ? (
+        <div
+          aria-hidden="true"
+          data-testid={`${spotlight.target}-spotlight-overlay`}
+          className="pointer-events-none fixed inset-0 z-[75] transition-opacity duration-300"
+          style={spotlightStyle}
+        />
+      ) : null}
+      <FloatingChatbot
+        onResumeRequest={() => spotlightTarget("resume")}
+        onContactRequest={() => spotlightTarget("contact")}
+        onProjectsRequest={() => spotlightTarget("projects")}
+      />
     </main>
   );
 }
