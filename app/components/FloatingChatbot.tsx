@@ -68,7 +68,7 @@ const knownLinks = {
   },
   resume: {
     label: "Open resume",
-    href: "/Dylan-Caballero-FullStack-Resume-Improved.pdf",
+    href: "/Dylan-Caballero-AI-Resume.pdf",
   },
   email: {
     label: "Email Dylan",

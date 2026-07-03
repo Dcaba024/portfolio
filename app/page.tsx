@@ -237,8 +237,8 @@ export default function Home() {
                   </a>
                   <a
                     ref={resumeLinkRef}
-                    href="/Dylan-Caballero-FullStack-Resume-Improved.pdf"
-                    download="Dylan-Caballero-FullStack-Resume-Improved.pdf"
+                    href="/Dylan-Caballero-AI-Resume.pdf"
+                    download="Dylan-Caballero-AI-Resume.pdf"
                     className={`inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-400 focus:outline-none focus:ring-4 focus:ring-amber-300/80 sm:w-auto dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 ${
                       activeSpotlightTarget === "resume"
                         ? "relative z-[85] animate-pulse ring-4 ring-amber-300 ring-offset-4 ring-offset-white dark:ring-offset-slate-950"

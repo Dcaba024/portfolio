@@ -89,11 +89,11 @@ describe("Home resume download", () => {
 
     expect(resumeLink).toHaveAttribute(
       "href",
-      "/Dylan-Caballero-FullStack-Resume-Improved.pdf"
+      "/Dylan-Caballero-AI-Resume.pdf"
     );
     expect(resumeLink).toHaveAttribute(
       "download",
-      "Dylan-Caballero-FullStack-Resume-Improved.pdf"
+      "Dylan-Caballero-AI-Resume.pdf"
     );
   });
 
@@ -103,7 +103,7 @@ describe("Home resume download", () => {
         join(
           process.cwd(),
           "public",
-          "Dylan-Caballero-FullStack-Resume-Improved.pdf"
+          "Dylan-Caballero-AI-Resume.pdf"
         )
       )
     ).toBe(true);
