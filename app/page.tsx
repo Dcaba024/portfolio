@@ -18,9 +18,9 @@ import Footer from "./components/Footer";
 import FloatingChatbot from "./components/FloatingChatbot";
 
 const highlights = [
-  { label: "AI systems", value: "Agents, prompts, scoring, and evaluation" },
-  { label: "Automation", value: "Workflows, extraction, and decision support" },
-  { label: "Core stack", value: "Next.js, React, Java, Spring Boot, OpenAI APIs" },
+  { label: "IAM + OAuth", value: "ForgeRock, OAuth 2.0, MFA, and SSO" },
+  { label: "AI agents", value: "LangChain, CrewAI, n8n, OpenAI/Claude APIs" },
+  { label: "Core stack", value: "Next.js, React, Java, Spring Boot, AWS" },
 ];
 
 type SpotlightTarget = "resume" | "contact" | "projects";
@@ -166,7 +166,7 @@ export default function Home() {
               className="grid gap-8 py-6 text-left lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-center lg:gap-x-12 lg:gap-y-7 lg:py-10 xl:grid-cols-[minmax(0,1fr)_22rem]"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-800 dark:text-amber-300 sm:text-sm sm:tracking-[0.3em] lg:col-start-1 lg:row-start-1">
-                Software Engineer • AI Automation Engineer • Full-Stack Builder
+                Enterprise IAM + AI agent development
               </p>
 
               <aside className="mx-auto grid w-full max-w-xs gap-4 sm:max-w-sm lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none">
@@ -187,8 +187,8 @@ export default function Home() {
                       Currently
                     </p>
                     <p className="mt-2 text-base font-semibold leading-7">
-                      Building secure authentication journeys, AI agents, and
-                      automated workflows that move products and teams faster.
+                      Building secure IAM journeys, OAuth 2.0 flows, AI agents,
+                      and automations that move products and teams faster.
                     </p>
                   </div>
                   <div className="flex gap-3 lg:mt-4">
@@ -217,13 +217,14 @@ export default function Home() {
               <div className="space-y-7 lg:col-start-1 lg:row-start-2">
                 <div className="space-y-5">
                   <h1 className="max-w-4xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-slate-950 sm:text-5xl md:text-6xl xl:text-7xl dark:text-white">
-                    Building intelligent products and automations that turn complex work into reliable workflows.
+                    Full Stack Software Engineer | Identity & Access Management (IAM) + OAuth 2.0 | AI Agent & Automation Development
                   </h1>
                   <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 dark:text-slate-300">
-                    I’m Dylan Caballero, a software engineer with hands-on
-                    experience across identity and access management, AI agents,
-                    workflow automation, Java/Spring Boot backends, and polished
-                    React interfaces.
+                    5+ years building secure, enterprise-scale identity and
+                    authentication systems (ForgeRock, OAuth 2.0, MFA) at
+                    government scale, combined with hands-on experience building
+                    production AI agents and automations (LangChain, CrewAI,
+                    n8n, OpenAI/Claude APIs).
                   </p>
                 </div>
 
@@ -237,8 +238,8 @@ export default function Home() {
                   </a>
                   <a
                     ref={resumeLinkRef}
-                    href="/Dylan-Caballero-AI-Resume.pdf"
-                    download="Dylan-Caballero-AI-Resume.pdf"
+                    href="/Dylan-Caballero-Resume.pdf"
+                    download="Dylan-Caballero-Resume.pdf"
                     className={`inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-400 focus:outline-none focus:ring-4 focus:ring-amber-300/80 sm:w-auto dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 ${
                       activeSpotlightTarget === "resume"
                         ? "relative z-[85] animate-pulse ring-4 ring-amber-300 ring-offset-4 ring-offset-white dark:ring-offset-slate-950"

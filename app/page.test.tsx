@@ -89,11 +89,11 @@ describe("Home resume download", () => {
 
     expect(resumeLink).toHaveAttribute(
       "href",
-      "/Dylan-Caballero-AI-Resume.pdf"
+      "/Dylan-Caballero-Resume.pdf"
     );
     expect(resumeLink).toHaveAttribute(
       "download",
-      "Dylan-Caballero-AI-Resume.pdf"
+      "Dylan-Caballero-Resume.pdf"
     );
   });
 
@@ -103,7 +103,7 @@ describe("Home resume download", () => {
         join(
           process.cwd(),
           "public",
-          "Dylan-Caballero-AI-Resume.pdf"
+          "Dylan-Caballero-Resume.pdf"
         )
       )
     ).toBe(true);
@@ -167,13 +167,23 @@ describe("Home project navigation", () => {
   });
 });
 
-describe("Home AI automation positioning", () => {
-  it("highlights AI agents and workflow automation", () => {
+describe("Home IAM and AI positioning", () => {
+  it("highlights IAM, OAuth, AI agents, and automation", () => {
     render(<Home />);
 
-    expect(screen.getByText(/ai automation engineer/i)).toBeInTheDocument();
-    expect(screen.getByText(/agents, prompts, scoring, and evaluation/i)).toBeInTheDocument();
-    expect(screen.getByText(/workflows, extraction, and decision support/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /full stack software engineer \| identity & access management \(iam\) \+ oauth 2\.0 \| ai agent & automation development/i
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/5\+ years building secure, enterprise-scale identity/i)
+    ).toBeInTheDocument();
+    expect(screen.getByText(/forgerock, oauth 2\.0, mfa, and sso/i)).toBeInTheDocument();
+    expect(
+      screen.getAllByText(/langchain, crewai, n8n, openai\/claude apis/i)
+        .length
+    ).toBeGreaterThan(0);
   });
 });
 

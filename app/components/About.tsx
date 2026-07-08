@@ -14,17 +14,17 @@ export default function About() {
       >
         <div className="flex flex-col justify-between gap-8">
           <div>
-            <p className="section-kicker">AI + Automation</p>
+            <p className="section-kicker">IAM + AI Integration</p>
             <h2 className="mt-5 max-w-md text-3xl font-semibold leading-tight tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
-              I build secure products, AI-powered tools, and automations that make complex work easier.
+              I build secure identity systems, full-stack products, and production AI automations.
             </h2>
           </div>
 
           <div className="space-y-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
             <p>
-              I’m a software engineer with a strong focus on identity and access
-              management, full-stack development, AI agents, and workflow
-              automation.
+              I’m a full stack software engineer focused on identity and access
+              management, OAuth 2.0, MFA, and account-lifecycle security, with
+              applied AI agent and automation development.
             </p>
             <p>
               My recent work includes supporting ForgeRock-based IAM flows, OAuth
@@ -32,24 +32,24 @@ export default function About() {
               experiences serving Texas.gov and TXDMV users.
             </p>
             <p>
-              I also build OpenAI-powered chat, summarization, data extraction,
-              scoring, and decision-support workflows with an emphasis on clear
-              prompts, reliable outputs, and practical evaluation loops.
+              I also build production AI agents and automations with LangChain,
+              CrewAI, n8n, and OpenAI/Claude APIs, with an emphasis on reliable
+              outputs and practical evaluation loops.
             </p>
           </div>
         </div>
 
         <div className="grid gap-3 self-center sm:grid-cols-3 lg:grid-cols-1">
           <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">
-            <p className="text-sm text-slate-500 dark:text-slate-400">AI systems</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Identity security</p>
             <p className="mt-2 font-semibold text-slate-900 dark:text-white">
-              Agents, prompting, and evaluation
+              ForgeRock IAM, OAuth 2.0, MFA
             </p>
           </div>
           <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">
-            <p className="text-sm text-slate-500 dark:text-slate-400">Automation</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">AI agents</p>
             <p className="mt-2 font-semibold text-slate-900 dark:text-white">
-              Extraction, scoring, and workflows
+              LangChain, CrewAI, and n8n
             </p>
           </div>
           <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">

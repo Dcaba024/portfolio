@@ -1,6 +1,6 @@
 import type { KnowledgeChunk } from "./portfolioKnowledge";
 
-export const resumeSourceFile = "public/Dylan-Caballero-AI-Resume.pdf";
+export const resumeSourceFile = "public/Dylan-Caballero-Resume.pdf";
 
 export const resumeKnowledgeChunks: KnowledgeChunk[] = [
   {
@@ -8,19 +8,24 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume profile summary",
     source: "resume",
     content:
-      "Dylan Caballero is an AI Automation Engineer, AI Solutions Engineer, AI Agent Developer, and Full Stack Software Engineer based in Florida, USA. His resume contact details are caballerodylan96@gmail.com, github.com/Dcaba024, and portfolio-nine-coral-23.vercel.app. He has 5+ years of experience building enterprise software, AI-powered applications, and workflow automations. He delivered secure, scalable systems at Deloitte serving millions of users and focuses on measurable business impact through intelligent automation.",
+      "Dylan Caballero is a Software Engineer focused on Identity and Access Management plus AI Integration, based in Florida, USA. His resume contact details are caballerodylan96@gmail.com, github.com/Dcaba024, and portfolio-nine-coral-23.vercel.app. He is a Full Stack Software Engineer with 5+ years building secure, enterprise-scale identity and authentication systems, including 5 years engineering IAM and OAuth 2.0 infrastructure at Deloitte for a government platform serving millions of Texas residents. He combines enterprise security experience in ForgeRock IAM, OAuth 2.0, MFA, and account-lifecycle security with practical production AI agent workflows using LangChain, CrewAI, n8n, OpenAI APIs, and Claude APIs.",
     keywords: [
+      "identity and access management",
+      "ai integration",
       "ai automation engineer",
       "ai solutions engineer",
-      "ai agent developer",
       "full stack software engineer",
       "florida",
       "email",
       "github",
       "portfolio",
       "deloitte",
+      "iam",
+      "oauth 2.0",
+      "forgerock",
+      "mfa",
       "enterprise software",
-      "workflow automations",
+      "government platform",
     ],
   },
   {
@@ -28,17 +33,16 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume AI and automation skills",
     source: "resume",
     content:
-      "Dylan's resume lists AI and automation skills including n8n, OpenAI API, Claude API, LangChain, CrewAI, AI Agents, Agentic Workflows, Prompt Engineering, and LLM Integrations. He builds end-to-end AI-powered automations using n8n workflows and LLM integrations that orchestrate API calls, process business data, and eliminate repetitive manual tasks. He builds intelligent agents capable of dynamic decision-making, multi-step reasoning, and autonomous task completion across business workflows.",
+      "Dylan's resume lists AI and automation skills including n8n, OpenAI API, Claude API, LangChain, CrewAI, Agentic Workflows, Prompt Engineering, and LLM Integration. He designs end-to-end AI-powered automations using n8n workflows and LLM integrations that orchestrate API calls, process business data, and eliminate repetitive manual tasks. He builds intelligent agents capable of dynamic decision-making, multi-step reasoning, and autonomous task completion across business workflows.",
     keywords: [
       "n8n",
       "openai api",
       "claude api",
       "langchain",
       "crewai",
-      "ai agents",
       "agentic workflows",
       "prompt engineering",
-      "llm integrations",
+      "llm integration",
       "automation",
       "multi-step reasoning",
       "autonomous task completion",
@@ -49,8 +53,11 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume technical skills",
     source: "resume",
     content:
-      "Dylan's resume technical stack includes Python, JavaScript, TypeScript, Java, React, Next.js, Redux, Tailwind CSS, Material UI, Node.js, Express.js, Python Flask and FastAPI, Spring Boot, REST APIs, Microservices, ForgeRock IAM, OAuth 2.0, JWT, MFA, SSO, Authentication and Authorization, AWS, PostgreSQL, SQL, Docker, CI/CD, GitHub Actions, and Vercel.",
+      "Dylan's resume technical stack includes Security and IAM skills such as ForgeRock IAM, OAuth 2.0, JWT, MFA, SSO, and Authentication and Authorization Architecture; AI and Automation skills such as n8n, OpenAI API, Claude API, LangChain, CrewAI, Agentic Workflows, Prompt Engineering, and LLM Integration; frontend skills including React, Next.js, Redux, TypeScript, Tailwind CSS, and Material UI; backend skills including Node.js, Express.js, Python Flask and FastAPI, Spring Boot, REST APIs, and Microservices; cloud and DevOps skills including AWS, PostgreSQL, SQL, Docker, CI/CD, GitHub Actions, and Vercel; and languages including Python, JavaScript, TypeScript, and Java.",
     keywords: [
+      "security",
+      "iam",
+      "authentication architecture",
       "python",
       "javascript",
       "typescript",
@@ -85,7 +92,7 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume Deloitte experience",
     source: "resume",
     content:
-      "Dylan worked as a Full Stack Software Engineer from November 2020 to October 2025 at Deloitte on Texas.gov and MyTexas digital platforms. He architected and led authentication, account-management, and identity workflows for millions of Texas residents using React, TypeScript, Node.js, ForgeRock IAM, and OAuth 2.0. He delivered Google reCAPTCHA Enterprise, implemented MFA with SMS, Email, Voice, Authenticator Apps, and Security Keys, built account recovery, password management, phone verification, and MFA preference flows, engineered multi-file upload pipelines with PDF generation and backend integrations, integrated ForgeRock and Java APIs, led WCAG compliance remediation, resolved production issues, and partnered with architects, QA, product owners, and stakeholders.",
+      "Dylan worked as a Full Stack Software Engineer from November 2020 to October 2025 at Deloitte on Texas.gov and MyTexas digital platforms. He architected and led authentication, account-management, and identity workflows powering millions of Texas residents using React, TypeScript, Node.js, ForgeRock IAM, and OAuth 2.0. He integrated ForgeRock and Java-based APIs driving authentication, authorization, and the full user-account lifecycle for a high-availability government-scale platform. He delivered Google reCAPTCHA Enterprise, implemented MFA with SMS, Email, Voice, Authenticator Apps, and Security Keys, built account recovery, password management, phone verification, and MFA preference flows, engineered multi-file upload pipelines with PDF generation, validation, and backend integrations, led WCAG accessibility remediation, resolved production issues across authentication and API integrations, and partnered with architects, QA, product owners, and stakeholders.",
     keywords: [
       "deloitte",
       "full stack software engineer",
@@ -113,7 +120,7 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume BabyDaddy.com AI legal assistant project",
     source: "resume",
     content:
-      "BabyDaddy.com is Dylan's AI Legal Assistant Platform at babbydaddy.vercel.app. The stack includes Next.js, TypeScript, Python, OpenAI, LangChain, and AI Agents. Dylan built an AI agent that delivers state-specific legal guidance for fathers navigating custody, parenting time, child support, and communication disputes, reducing reliance on costly attorney consultations. He designed conversational workflows that organize case timelines, build evidence checklists, generate targeted questions for attorney meetings, and implemented state-aware logic to tailor legal information and next-step recommendations to the user's jurisdiction.",
+      "BabyDaddy.com is Dylan's AI Legal Assistant Platform at babbydaddy.vercel.app. The stack includes Next.js, TypeScript, Python, OpenAI, and LangChain. Dylan built an AI agent delivering state-specific legal guidance for custody, parenting time, and child support disputes, applying the same rigor around data handling and user-state logic used in enterprise identity systems. He designed conversational workflows that organize case timelines, build evidence checklists, and generate targeted questions for attorney meetings, with state-aware logic tailoring guidance to jurisdiction.",
     keywords: [
       "babydaddy",
       "ai legal assistant",
@@ -162,7 +169,7 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume education and target roles",
     source: "resume",
     content:
-      "Dylan earned a Bachelor of Arts in Computer Science from Florida International University. His target roles are AI Automation Engineer, AI Solutions Engineer, AI Agent Engineer, Full Stack AI Engineer, Developer Advocate for AI, and IAM Engineer.",
+      "Dylan earned a Bachelor of Arts in Computer Science from Florida International University. His target roles are IAM Engineer, AI Solutions Engineer for enterprise and security environments, Full Stack Software Engineer focused on identity and authentication, AI Automation Engineer, Software Engineer focused on AI Integration, and Identity Security plus AI Governance roles.",
     keywords: [
       "education",
       "bachelor of arts",
@@ -170,12 +177,16 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
       "florida international university",
       "fiu",
       "target roles",
+      "iam engineer",
       "ai automation engineer",
       "ai solutions engineer",
-      "ai agent engineer",
-      "full stack ai engineer",
-      "developer advocate",
-      "iam engineer",
+      "enterprise security",
+      "full stack software engineer",
+      "identity",
+      "authentication",
+      "ai integration",
+      "identity security",
+      "ai governance",
     ],
   },
 ];

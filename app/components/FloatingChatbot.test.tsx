@@ -82,7 +82,7 @@ describe("FloatingChatbot", () => {
     ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /open resume/i })).toHaveAttribute(
       "href",
-      "/Dylan-Caballero-AI-Resume.pdf"
+      "/Dylan-Caballero-Resume.pdf"
     );
     expect(screen.getByRole("link", { name: /open resume/i })).toHaveAttribute(
       "target",

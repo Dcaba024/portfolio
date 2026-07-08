@@ -76,11 +76,12 @@ export default function Contact({ formRef, isSpotlighted = false }: ContactProps
             <div>
               <p className="section-kicker">Contact</p>
               <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
-                Building an AI product or automating a workflow? Let’s connect.
+                Building secure IAM systems or production AI automations? Let’s connect.
               </h2>
               <p className="mt-4 max-w-md text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
-                I’m open to software engineering, AI automation, and IAM opportunities
-                where reliable systems and useful product experiences matter.
+                I’m open to full-stack software engineering, IAM/OAuth 2.0, and
+                AI agent automation opportunities where reliable systems and
+                useful product experiences matter.
               </p>
             </div>
 
@@ -89,7 +90,7 @@ export default function Contact({ formRef, isSpotlighted = false }: ContactProps
                 What you can expect
               </p>
               <p className="mt-3 text-base font-semibold leading-7 sm:text-lg sm:leading-8">
-                Full-stack delivery, practical AI integration, and automation designed around measurable user and business needs.
+                Full-stack delivery, identity security, and practical AI integration designed around measurable user and business needs.
               </p>
             </div>
           </div>

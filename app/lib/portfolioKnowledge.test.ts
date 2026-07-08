@@ -30,7 +30,7 @@ describe("portfolio knowledge retrieval", () => {
       { maxChunks: 2 }
     );
 
-    expect(resumeSourceFile).toBe("public/Dylan-Caballero-AI-Resume.pdf");
+    expect(resumeSourceFile).toBe("public/Dylan-Caballero-Resume.pdf");
     expect(chunks[0].id).toBe("resume-ai-automation-skills");
     expect(chunks[0].content).toContain("n8n");
     expect(chunks[0].content).toContain("Claude API");
