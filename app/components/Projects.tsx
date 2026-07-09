@@ -6,6 +6,14 @@ import { FaArrowRight, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const projects = [
   {
+    title: "BabbyDaddy.com",
+    description:
+      "An AI legal-guidance agent for fathers who cannot afford a lawyer and are fighting for custody rights, helping them understand options, organize case details, and prepare next steps.",
+    tech: ["Web App", "Responsive UI", "Vercel"],
+    github: "https://github.com/Dcaba024/babydaddy",
+    demo: "https://babbydaddy.com",
+  },
+  {
     title: "Resume Analyzer",
     description:
       "An automated AI scoring pipeline that extracts resume context, compares it with job requirements, and returns match scores with actionable feedback.",
@@ -20,15 +28,8 @@ const projects = [
     tech: ["Next.js", "Postgres", "Tailwind"],
     github: "https://github.com/Dcaba024/cardboardkings",
     demo: "https://cardboardkings.org",
-  },
-  {
-    title: "BabyDaddy.com",
-    description:
-      "An AI legal-guidance agent for fathers who cannot afford a lawyer and are fighting for custody rights, helping them understand options, organize case details, and prepare next steps.",
-    tech: ["Web App", "Responsive UI", "Vercel"],
-    github: "https://github.com/Dcaba024/babydaddy",
-    demo: "https://babbydaddy.vercel.app/",
-  },
+  }
+  
 ];
 
 type ProjectsProps = {

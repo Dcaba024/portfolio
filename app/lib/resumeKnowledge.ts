@@ -8,7 +8,7 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume profile summary",
     source: "resume",
     content:
-      "Dylan Caballero is a Software Engineer focused on Identity and Access Management plus AI Integration, based in Florida, USA. His resume contact details are caballerodylan96@gmail.com, github.com/Dcaba024, and portfolio-nine-coral-23.vercel.app. He is a Full Stack Software Engineer with 5+ years building secure, enterprise-scale identity and authentication systems, including 5 years engineering IAM and OAuth 2.0 infrastructure at Deloitte for a government platform serving millions of Texas residents. He combines enterprise security experience in ForgeRock IAM, OAuth 2.0, MFA, and account-lifecycle security with practical production AI agent workflows using LangChain, CrewAI, n8n, OpenAI APIs, and Claude APIs.",
+      "Dylan Caballero is a Software Engineer focused on Identity and Access Management plus AI Integration, based in Florida, USA. His resume contact details are caballerodylan96@gmail.com, github.com/Dcaba024, and dylancaballero.com. He is a Full Stack Software Engineer with 5+ years building secure, enterprise-scale identity and authentication systems, including 5 years engineering IAM and OAuth 2.0 infrastructure at Deloitte for a government platform serving millions of Texas residents. He combines enterprise security experience in ForgeRock IAM, OAuth 2.0, MFA, and account-lifecycle security with practical production AI agent workflows using LangChain, CrewAI, n8n, OpenAI APIs, and Claude APIs.",
     keywords: [
       "identity and access management",
       "ai integration",
@@ -117,12 +117,14 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
   },
   {
     id: "resume-babydaddy-project",
-    title: "Resume BabyDaddy.com AI legal assistant project",
+    title: "Resume BabbyDaddy.com AI legal assistant project",
     source: "resume",
     content:
-      "BabyDaddy.com is Dylan's AI Legal Assistant Platform at babbydaddy.vercel.app. The stack includes Next.js, TypeScript, Python, OpenAI, and LangChain. Dylan built an AI agent delivering state-specific legal guidance for custody, parenting time, and child support disputes, applying the same rigor around data handling and user-state logic used in enterprise identity systems. He designed conversational workflows that organize case timelines, build evidence checklists, and generate targeted questions for attorney meetings, with state-aware logic tailoring guidance to jurisdiction.",
+      "BabbyDaddy.com is Dylan's AI Legal Assistant Platform at www.babbydaddy.com. The stack includes Next.js, TypeScript, Python, OpenAI, and LangChain. Dylan built an AI agent delivering state-specific legal guidance for custody, parenting time, and child support disputes, applying the same rigor around data handling and user-state logic used in enterprise identity systems. He designed conversational workflows that organize case timelines, build evidence checklists, and generate targeted questions for attorney meetings, with state-aware logic tailoring guidance to jurisdiction.",
     keywords: [
       "babydaddy",
+      "babbydaddy",
+      "www.babbydaddy.com",
       "ai legal assistant",
       "legal guidance",
       "custody",
@@ -144,7 +146,7 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume AI Resume Analyzer SaaS project",
     source: "resume",
     content:
-      "AI Resume Analyzer is Dylan's SaaS platform built with Next.js, TypeScript, Python, PostgreSQL, OpenAI, CrewAI, and LangChain. He designed multi-agent orchestration pipelines that compare resumes to job descriptions, detect skill gaps, and produce ATS optimization recommendations. He built candidate alignment scoring and actionable career-insight generation using LangChain chains and CrewAI agent roles, and delivered a full SaaS experience with authentication, database persistence, and a polished Next.js UI.",
+      "AI Resume Analyzer is Dylan's SaaS platform built with Next.js, TypeScript, Python, PostgreSQL, OpenAI, CrewAI, and LangChain. He designed multi-agent orchestration pipelines that compare resumes to job descriptions, detect skill gaps, and produce ATS optimization recommendations using LangChain chains and CrewAI agent roles. He delivered a full SaaS experience with authentication, database persistence, and a polished Next.js UI.",
     keywords: [
       "ai resume analyzer",
       "saas",

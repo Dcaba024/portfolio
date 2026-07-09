@@ -19,7 +19,7 @@ describe("Projects", () => {
     expect(screen.getByText("Resume Analyzer")).toBeInTheDocument();
     expect(screen.getByText("AI Automation")).toBeInTheDocument();
     expect(screen.getByText("Cardboard Kings")).toBeInTheDocument();
-    expect(screen.getByText("BabyDaddy.com")).toBeInTheDocument();
+    expect(screen.getByText("BabbyDaddy.com")).toBeInTheDocument();
     expect(screen.queryByText("Spring Boot Task Manager")).not.toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /start a conversation/i })
@@ -44,11 +44,11 @@ describe("Projects", () => {
     ).toHaveAttribute("href", "https://cardboardkings.org");
 
     expect(
-      screen.getByRole("link", { name: /babydaddy\.com live demo/i })
-    ).toHaveAttribute("href", "https://babbydaddy.vercel.app/");
+      screen.getByRole("link", { name: /babbydaddy\.com live demo/i })
+    ).toHaveAttribute("href", "https://babbydaddy.com");
     expect(
       screen.getByRole("link", {
-        name: /babydaddy\.com github repository/i,
+        name: /babbydaddy\.com github repository/i,
       })
     ).toHaveAttribute("href", "https://github.com/Dcaba024/babydaddy");
   });

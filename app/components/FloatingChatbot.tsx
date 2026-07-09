@@ -83,8 +83,8 @@ const knownLinks = {
     href: "https://cardboardkings.org",
   },
   babyDaddy: {
-    label: "Open BabyDaddy.com",
-    href: "https://babbydaddy.vercel.app/",
+    label: "Open BabbyDaddy.com",
+    href: "https://babbydaddy.com",
   },
 } satisfies Record<string, ChatLink>;
 
@@ -113,7 +113,7 @@ const getLinkRequestResponse = (question: string): LinkRequestResponse | null =>
 
   if (/\b(baby\s*daddy|babydaddy|babbydaddy)\b/i.test(question)) {
     return {
-      text: "Here is the BabyDaddy.com project.",
+      text: "Here is the BabbyDaddy.com project.",
       links: [knownLinks.babyDaddy],
     };
   }
