@@ -55,10 +55,12 @@ const portfolioSpecificKnowledgeChunks: KnowledgeChunk[] = [
     title: "Featured AI and automation projects",
     source: "project",
     content:
-      "Dylan's featured projects include AI Resume Analyzer, a full-stack resume scoring platform that uses React, Node.js, backend REST APIs, and OpenAI APIs to compare resume context with job requirements and return match scores with actionable feedback; BabbyDaddy.com, an AI legal-guidance agent for fathers fighting for custody rights who cannot afford a lawyer; DillyDidIt, a sports prediction social app concept; and this portfolio website, a WCAG-compliant Next.js portfolio with a RAG chatbot. He also built Cardboard Kings, a sports card storefront for cleaning services and collectible sales.",
+      "Dylan's featured projects include Caballero Technologies, his consulting and product studio site (caballerotechnologies.com) showcasing IAM, full-stack, and AI automation services; AI Resume Analyzer, a full-stack resume scoring platform that uses React, Node.js, backend REST APIs, and OpenAI APIs to compare resume context with job requirements and return match scores with actionable feedback; BabbyDaddy.com, an AI legal-guidance agent for fathers fighting for custody rights who cannot afford a lawyer; DillyDidIt, a sports prediction social app concept; and this portfolio website, a WCAG-compliant Next.js portfolio with a RAG chatbot. He also built Cardboard Kings, a sports card storefront for cleaning services and collectible sales.",
     keywords: [
       "projects",
       "ai projects",
+      "caballero technologies",
+      "consulting",
       "resume analyzer",
       "openai api",
       "job matching",

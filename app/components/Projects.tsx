@@ -6,6 +6,14 @@ import { FaArrowRight, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const projects = [
   {
+    title: "Caballero Technologies",
+    description:
+      "The consulting and product studio site for Caballero Technologies, showcasing IAM, full-stack, and AI automation services with a modern, conversion-focused build.",
+    tech: ["Next.js", "Tailwind", "Vercel"],
+    github: "https://github.com/Dcaba024/caballero-technologies",
+    demo: "https://caballerotechnologies.com",
+  },
+  {
     title: "BabbyDaddy.com",
     description:
       "An AI legal-guidance agent for fathers who cannot afford a lawyer and are fighting for custody rights, helping them understand options, organize case details, and prepare next steps.",
@@ -49,7 +57,7 @@ export default function Projects({
       tabIndex={-1}
       className={`section-shell px-4 py-6 transition focus:outline-none md:px-10 md:py-10 ${
         isSpotlighted
-          ? "relative z-[85] rounded-[2rem] ring-4 ring-amber-300 ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
+          ? "relative z-[85] rounded-[2rem] ring-4 ring-white ring-offset-4 ring-offset-slate-950"
           : ""
       }`}
     >
@@ -63,17 +71,17 @@ export default function Projects({
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="section-kicker">Selected Work</p>
-            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
               AI automations, full-stack applications, and production-ready product work.
             </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
+            <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
               These projects show how I connect interfaces, APIs, data, and AI to
               automate decisions, reduce manual work, and solve clear user needs.
             </p>
           </div>
           <a
             href="#contact"
-            className="inline-flex w-full items-center justify-center gap-3 self-start rounded-full border border-slate-300 bg-white/75 px-5 py-3 text-sm font-semibold text-slate-800 hover:-translate-y-0.5 sm:w-auto dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100"
+            className="btn-hud w-full self-start rounded-[0.4rem] px-5 py-3 sm:w-auto"
           >
             Start a conversation
             <FaArrowRight />
@@ -84,22 +92,22 @@ export default function Projects({
           {projects.map((project, index) => (
             <motion.article
               key={project.title}
-              className="group rounded-[1.75rem] border border-slate-200/80 bg-white/80 p-6 shadow-lg shadow-slate-900/5 dark:border-white/10 dark:bg-slate-950/55"
+              className="card-glow group rounded-[1.25rem] border border-white/20 bg-slate-950/55 p-6 shadow-lg shadow-black/10"
               whileHover={{ y: -6 }}
               transition={{ duration: 0.22 }}
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-amber-800 dark:text-amber-300">
+                <span className="mono-stat text-sm font-semibold text-white">
                   0{index + 1}
                 </span>
-                <div className="flex gap-3 text-slate-500 dark:text-slate-400">
+                <div className="flex gap-3 text-slate-400">
                   {project.github ? (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${project.title} GitHub repository`}
-                      className="rounded-full border border-slate-200 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
+                      className="rounded-[0.35rem] border border-white/20 p-3 transition hover:border-white/70 hover:text-white"
                     >
                       <FaGithub size={18} />
                     </a>
@@ -109,17 +117,17 @@ export default function Projects({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${project.title} live demo`}
-                    className="rounded-full border border-slate-200 p-3 hover:border-amber-600 hover:text-amber-700 dark:border-white/10 dark:hover:border-amber-400 dark:hover:text-amber-300"
+                    className="rounded-[0.35rem] border border-white/20 p-3 transition hover:border-white/70 hover:text-white"
                   >
                     <FaExternalLinkAlt size={16} />
                   </a>
                 </div>
               </div>
 
-              <h3 className="mt-8 text-2xl font-semibold text-slate-950 dark:text-white">
+              <h3 className="mt-8 text-2xl font-semibold text-white">
                 {project.title}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
+              <p className="mt-4 text-sm leading-7 text-slate-300">
                 {project.description}
               </p>
 
@@ -127,7 +135,7 @@ export default function Projects({
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+                    className="rounded-[0.3rem] border border-white/20 bg-white/5 px-3 py-1 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-white/80"
                   >
                     {tech}
                   </span>

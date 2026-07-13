@@ -11,7 +11,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa";
 import About from "./components/About";
-import Connect4 from "./components/Connect4";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -36,6 +35,7 @@ export default function Home() {
   const [activeSpotlightTarget, setActiveSpotlightTarget] =
     useState<SpotlightTarget | null>(null);
   const [spotlight, setSpotlight] = useState<Spotlight | null>(null);
+  const [systemTime, setSystemTime] = useState<string | null>(null);
   const resumeLinkRef = useRef<HTMLAnchorElement>(null);
   const contactFormRef = useRef<HTMLFormElement>(null);
   const projectsSectionRef = useRef<HTMLElement>(null);
@@ -66,6 +66,16 @@ export default function Home() {
   );
 
   useEffect(() => {
+    const updateTime = () =>
+      setSystemTime(
+        new Date().toLocaleTimeString("en-US", { hour12: false })
+      );
+    updateTime();
+    const timeInterval = setInterval(updateTime, 1000);
+    return () => clearInterval(timeInterval);
+  }, []);
+
+  useEffect(() => {
     return () => {
       if (spotlightTimer.current) {
         clearTimeout(spotlightTimer.current);
@@ -92,6 +102,45 @@ export default function Home() {
       window.removeEventListener("scroll", syncSpotlight);
     };
   }, [activeSpotlightTarget, updateSpotlight]);
+
+  const dismissSpotlight = useCallback(() => {
+    if (spotlightTimer.current) {
+      clearTimeout(spotlightTimer.current);
+      spotlightTimer.current = null;
+    }
+    setActiveSpotlightTarget(null);
+    setSpotlight(null);
+  }, []);
+
+  useEffect(() => {
+    if (!activeSpotlightTarget) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const element = getSpotlightElement(activeSpotlightTarget);
+      if (
+        element &&
+        event.target instanceof Node &&
+        element.contains(event.target)
+      ) {
+        return;
+      }
+      dismissSpotlight();
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        dismissSpotlight();
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeSpotlightTarget, dismissSpotlight, getSpotlightElement]);
 
   const spotlightTarget = (target: SpotlightTarget) => {
     const element = getSpotlightElement(target);
@@ -123,8 +172,7 @@ export default function Home() {
     );
 
     spotlightTimer.current = setTimeout(() => {
-      setActiveSpotlightTarget(null);
-      setSpotlight(null);
+      dismissSpotlight();
     }, 6000);
   };
 
@@ -143,20 +191,28 @@ export default function Home() {
               <div className="text-left">
                 <p className="section-kicker">Dylan Caballero</p>
               </div>
-              <nav className="flex flex-wrap justify-start gap-2 text-xs font-medium text-slate-600 dark:text-slate-300 sm:text-sm md:justify-end">
-                <a href="#about" className="rounded-full px-3 py-2 hover:bg-white/60 dark:hover:bg-white/5 sm:px-4">
-                  About
-                </a>
-                <a href="#projects" className="rounded-full px-3 py-2 hover:bg-white/60 dark:hover:bg-white/5 sm:px-4">
-                  Projects
-                </a>
-                <a href="#connect4" className="rounded-full px-3 py-2 hover:bg-white/60 dark:hover:bg-white/5 sm:px-4">
-                  Playground
-                </a>
-                <a href="#contact" className="rounded-full px-3 py-2 hover:bg-white/60 dark:hover:bg-white/5 sm:px-4">
-                  Contact
-                </a>
-              </nav>
+              <div className="flex flex-wrap items-center justify-start gap-4 md:justify-end">
+                <nav className="flex flex-wrap justify-start gap-1 font-hud text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-slate-300 sm:text-xs md:justify-end">
+                  <a href="#about" className="rounded-[0.35rem] px-3 py-2 transition hover:bg-white/10 hover:text-white">
+                    About
+                  </a>
+                  <a href="#projects" className="rounded-[0.35rem] px-3 py-2 transition hover:bg-white/10 hover:text-white">
+                    Projects
+                  </a>
+                  <a href="#contact" className="rounded-[0.35rem] px-3 py-2 transition hover:bg-white/10 hover:text-white">
+                    Contact
+                  </a>
+                </nav>
+                <div className="hidden items-center gap-2 rounded-[0.35rem] border border-white/25 bg-white/5 px-3 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-white sm:flex">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+                  </span>
+                  System online
+                  <span className="text-white/60">|</span>
+                  <span suppressHydrationWarning>{systemTime ?? "00:00:00"}</span>
+                </div>
+              </div>
             </header>
 
             <motion.div
@@ -165,28 +221,31 @@ export default function Home() {
               transition={{ duration: 0.7 }}
               className="grid gap-8 py-6 text-left lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-center lg:gap-x-12 lg:gap-y-7 lg:py-10 xl:grid-cols-[minmax(0,1fr)_22rem]"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-800 dark:text-amber-300 sm:text-sm sm:tracking-[0.3em] lg:col-start-1 lg:row-start-1">
-                Enterprise IAM + AI agent development
+              <p className="blink-cursor font-mono text-xs font-semibold uppercase tracking-[0.22em] text-white sm:text-sm sm:tracking-[0.3em] lg:col-start-1 lg:row-start-1">
+                &gt; Enterprise IAM + AI agent development
               </p>
 
-              <aside className="mx-auto grid w-full max-w-xs gap-4 sm:max-w-sm lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none">
-                <div className="overflow-hidden rounded-[1.75rem] border border-white/60 bg-slate-950 shadow-2xl shadow-slate-950/15 md:rounded-[2rem] dark:border-white/10">
-                  <Image
-                    src="/Dylan.PNG"
-                    alt="Dylan Caballero"
-                    width={220}
-                    height={200}
-                    priority
-                    className="aspect-[4/5] w-full object-cover object-center"
-                  />
+              <aside className="mx-auto grid w-full max-w-xs gap-6 sm:max-w-sm lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none">
+                <div className="hud-ring mx-auto w-[70%] sm:w-[65%] lg:w-[78%]">
+                  <div className="relative overflow-hidden rounded-full border border-white/40 bg-slate-950 shadow-[0_0_60px_-15px_rgba(255,255,255,0.55)]">
+                    <Image
+                      src="/Dylan.PNG"
+                      alt="Dylan Caballero"
+                      width={320}
+                      height={320}
+                      priority
+                      className="aspect-square w-full object-cover object-center"
+                    />
+                    <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/30" />
+                  </div>
                 </div>
 
-                <div className="grid gap-4 rounded-[1.5rem] border border-indigo-900/10 bg-gradient-to-br from-amber-700 to-indigo-800 p-5 text-white shadow-xl shadow-indigo-950/15 sm:grid-cols-[1fr_auto] sm:items-end lg:block">
+                <div className="grid gap-4 rounded-[1.25rem] border border-white/25 border-l-4 border-l-white bg-slate-950/60 p-5 text-slate-100 shadow-xl shadow-black/20 sm:grid-cols-[1fr_auto] sm:items-end lg:block">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-                      Currently
+                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+                      Status // Currently
                     </p>
-                    <p className="mt-2 text-base font-semibold leading-7">
+                    <p className="mt-2 text-base font-semibold leading-7 text-slate-100">
                       Building secure IAM journeys, OAuth 2.0 flows, AI agents,
                       and automations that move products and teams faster.
                     </p>
@@ -197,7 +256,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Dylan Caballero GitHub"
-                      className="rounded-full border border-white/20 p-3 text-white/90 hover:bg-white/10"
+                      className="rounded-[0.35rem] border border-white/25 p-3 text-white/90 transition hover:border-white/70 hover:bg-white/10 hover:text-white"
                     >
                       <FaGithub size={20} />
                     </a>
@@ -206,7 +265,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Dylan Caballero LinkedIn"
-                      className="rounded-full border border-white/20 p-3 text-white/90 hover:bg-white/10"
+                      className="rounded-[0.35rem] border border-white/25 p-3 text-white/90 transition hover:border-white/70 hover:bg-white/10 hover:text-white"
                     >
                       <FaLinkedin size={20} />
                     </a>
@@ -216,10 +275,10 @@ export default function Home() {
 
               <div className="space-y-7 lg:col-start-1 lg:row-start-2">
                 <div className="space-y-5">
-                  <h1 className="max-w-4xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-slate-950 sm:text-5xl md:text-6xl xl:text-7xl dark:text-white">
+                  <h1 className="heading-glow max-w-4xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-5xl md:text-6xl xl:text-7xl">
                     Full Stack Software Engineer | Identity & Access Management (IAM) + OAuth 2.0 | AI Agent & Automation Development
                   </h1>
-                  <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 dark:text-slate-300">
+                  <p className="max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
                     5+ years building secure, enterprise-scale identity and
                     authentication systems (ForgeRock, OAuth 2.0, MFA) at
                     government scale, combined with hands-on experience building
@@ -231,7 +290,7 @@ export default function Home() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                   <a
                     href="#projects"
-                    className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/10 hover:-translate-y-0.5 sm:w-auto dark:bg-white dark:text-slate-950"
+                    className="btn-hud-solid w-full rounded-[0.4rem] px-6 py-3 sm:w-auto"
                   >
                     View projects
                     <FaArrowRight />
@@ -240,9 +299,9 @@ export default function Home() {
                     ref={resumeLinkRef}
                     href="/Dylan-Caballero-Resume.pdf"
                     download="Dylan-Caballero-Resume.pdf"
-                    className={`inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-400 focus:outline-none focus:ring-4 focus:ring-amber-300/80 sm:w-auto dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 ${
+                    className={`btn-hud w-full rounded-[0.4rem] px-6 py-3 focus:outline-none focus:ring-4 focus:ring-white/60 sm:w-auto ${
                       activeSpotlightTarget === "resume"
-                        ? "relative z-[85] animate-pulse ring-4 ring-amber-300 ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
+                        ? "relative z-[85] animate-pulse ring-4 ring-white ring-offset-4 ring-offset-slate-950"
                         : ""
                     }`}
                   >
@@ -254,12 +313,12 @@ export default function Home() {
                   {highlights.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-[1.25rem] border border-white/60 bg-white/75 p-4 shadow-lg shadow-slate-900/5 dark:border-white/10 dark:bg-slate-950/60"
+                      className="rounded-[0.85rem] border border-white/20 bg-slate-950/50 p-4 shadow-lg shadow-black/10"
                     >
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
                         {item.label}
                       </p>
-                      <p className="mt-2 text-sm font-semibold leading-6 text-slate-950 dark:text-white">
+                      <p className="mono-stat mt-2 text-sm font-semibold leading-6 text-slate-100">
                         {item.value}
                       </p>
                     </div>
@@ -271,7 +330,6 @@ export default function Home() {
         </div>
       </section>
       <About />
-      <Connect4 />
       <Projects
         sectionRef={projectsSectionRef}
         isSpotlighted={activeSpotlightTarget === "projects"}

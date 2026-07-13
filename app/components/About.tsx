@@ -15,12 +15,12 @@ export default function About() {
         <div className="flex flex-col justify-between gap-8">
           <div>
             <p className="section-kicker">IAM + AI Integration</p>
-            <h2 className="mt-5 max-w-md text-3xl font-semibold leading-tight tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
+            <h2 className="mt-5 max-w-md text-3xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-4xl">
               I build secure identity systems, full-stack products, and production AI automations.
             </h2>
           </div>
 
-          <div className="space-y-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
+          <div className="space-y-4 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
             <p>
               I’m a full stack software engineer focused on identity and access
               management, OAuth 2.0, MFA, and account-lifecycle security, with
@@ -40,21 +40,21 @@ export default function About() {
         </div>
 
         <div className="grid gap-3 self-center sm:grid-cols-3 lg:grid-cols-1">
-          <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">
-            <p className="text-sm text-slate-500 dark:text-slate-400">Identity security</p>
-            <p className="mt-2 font-semibold text-slate-900 dark:text-white">
+          <div className="rounded-[1rem] border border-white/20 bg-slate-950/50 p-4">
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-white/70">Identity security</p>
+            <p className="mt-2 font-semibold text-white">
               ForgeRock IAM, OAuth 2.0, MFA
             </p>
           </div>
-          <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">
-            <p className="text-sm text-slate-500 dark:text-slate-400">AI agents</p>
-            <p className="mt-2 font-semibold text-slate-900 dark:text-white">
+          <div className="rounded-[1rem] border border-white/20 bg-slate-950/50 p-4">
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-white/70">AI agents</p>
+            <p className="mt-2 font-semibold text-white">
               LangChain, CrewAI, and n8n
             </p>
           </div>
-          <div className="rounded-[1.5rem] border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-slate-950/40">
-            <p className="text-sm text-slate-500 dark:text-slate-400">Engineering</p>
-            <p className="mt-2 font-semibold text-slate-900 dark:text-white">
+          <div className="rounded-[1rem] border border-white/20 bg-slate-950/50 p-4">
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-white/70">Engineering</p>
+            <p className="mt-2 font-semibold text-white">
               Secure full-stack product delivery
             </p>
           </div>

@@ -75,21 +75,21 @@ export default function Contact({ formRef, isSpotlighted = false }: ContactProps
           <div className="flex flex-col justify-between gap-6">
             <div>
               <p className="section-kicker">Contact</p>
-              <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl dark:text-white">
+              <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
                 Building secure IAM systems or production AI automations? Let’s connect.
               </h2>
-              <p className="mt-4 max-w-md text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 dark:text-slate-300">
+              <p className="mt-4 max-w-md text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
                 I’m open to full-stack software engineering, IAM/OAuth 2.0, and
                 AI agent automation opportunities where reliable systems and
                 useful product experiences matter.
               </p>
             </div>
 
-            <div className="rounded-[1.5rem] bg-gradient-to-br from-amber-700 to-indigo-800 p-5 text-white shadow-xl shadow-indigo-950/15 md:rounded-[1.75rem] md:p-6">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/70">
+            <div className="rounded-[1.25rem] border border-white/25 border-l-4 border-l-white bg-slate-950/60 p-5 text-slate-100 shadow-xl shadow-black/20 md:p-6">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-white/80">
                 What you can expect
               </p>
-              <p className="mt-3 text-base font-semibold leading-7 sm:text-lg sm:leading-8">
+              <p className="mt-3 text-base font-semibold leading-7 text-slate-100 sm:text-lg sm:leading-8">
                 Full-stack delivery, identity security, and practical AI integration designed around measurable user and business needs.
               </p>
             </div>
@@ -101,7 +101,7 @@ export default function Contact({ formRef, isSpotlighted = false }: ContactProps
             onSubmit={handleSubmit}
             className={`space-y-4 rounded-[1.5rem] transition ${
               isSpotlighted
-                ? "relative z-[85] p-2 ring-4 ring-amber-300 ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
+                ? "relative z-[85] p-2 ring-4 ring-white ring-offset-4 ring-offset-slate-950"
                 : ""
             }`}
           >
@@ -113,7 +113,7 @@ export default function Contact({ formRef, isSpotlighted = false }: ContactProps
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full rounded-[1.15rem] border border-slate-200 bg-white/85 px-4 py-3 text-slate-900 outline-none focus:border-amber-600 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
+                className="w-full rounded-[0.85rem] border border-white/20 bg-slate-950/60 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-white/70"
               />
               <input
                 name="email"
@@ -122,7 +122,7 @@ export default function Contact({ formRef, isSpotlighted = false }: ContactProps
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full rounded-[1.15rem] border border-slate-200 bg-white/85 px-4 py-3 text-slate-900 outline-none focus:border-amber-600 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
+                className="w-full rounded-[0.85rem] border border-white/20 bg-slate-950/60 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-white/70"
               />
             </div>
 
@@ -133,12 +133,12 @@ export default function Contact({ formRef, isSpotlighted = false }: ContactProps
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full rounded-[1.35rem] border border-slate-200 bg-white/85 px-4 py-4 text-slate-900 outline-none focus:border-amber-600 dark:border-white/10 dark:bg-slate-950/60 dark:text-white"
+              className="w-full rounded-[1rem] border border-white/20 bg-slate-950/60 px-4 py-4 text-white outline-none placeholder:text-slate-500 focus:border-white/70"
             />
 
             <button
               type="submit"
-              className="w-full rounded-full bg-slate-950 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 dark:bg-white dark:text-slate-950"
+              className="btn-hud-solid w-full rounded-[0.5rem] py-3"
             >
               {isSent ? "Message Sent!" : "Send Message"}
             </button>

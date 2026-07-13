@@ -8,7 +8,7 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
     title: "Resume profile summary",
     source: "resume",
     content:
-      "Dylan Caballero is a Software Engineer focused on Identity and Access Management plus AI Integration, based in Florida, USA. His resume contact details are caballerodylan96@gmail.com, github.com/Dcaba024, and dylancaballero.com. He is a Full Stack Software Engineer with 5+ years building secure, enterprise-scale identity and authentication systems, including 5 years engineering IAM and OAuth 2.0 infrastructure at Deloitte for a government platform serving millions of Texas residents. He combines enterprise security experience in ForgeRock IAM, OAuth 2.0, MFA, and account-lifecycle security with practical production AI agent workflows using LangChain, CrewAI, n8n, OpenAI APIs, and Claude APIs.",
+      "Dylan Caballero is a Software Engineer focused on Identity and Access Management plus AI Integration, based in Florida, USA. His resume contact details are caballerodylan96@gmail.com, github.com/Dcaba024, and dylancaballero.com. He is a Full Stack Software Engineer with 5+ years building secure, enterprise-scale identity and authentication systems, including 5 years engineering IAM and OAuth 2.0 infrastructure at Deloitte for a government platform serving millions of Texas residents. He combines enterprise security experience in ForgeRock IAM, OAuth 2.0, MFA, and account-lifecycle security with practical production AI agent workflows using LangChain, CrewAI, n8n, OpenAI APIs, and Claude APIs. He is currently the founder of Caballero Technologies, an AI venture studio building automation and AI agent products for businesses.",
     keywords: [
       "identity and access management",
       "ai integration",
@@ -26,6 +26,34 @@ export const resumeKnowledgeChunks: KnowledgeChunk[] = [
       "mfa",
       "enterprise software",
       "government platform",
+      "caballero technologies",
+      "founder",
+      "venture studio",
+    ],
+  },
+  {
+    id: "resume-caballero-technologies-role",
+    title: "Resume Caballero Technologies founder role",
+    source: "resume",
+    content:
+      "Dylan is Founder & Lead Engineer at Caballero Technologies, an AI venture studio, from June 2026 to present. He founded and leads the studio designing and building software, AI systems, automation, and digital products for businesses. He launched NovaRose AI, the studio's active venture, helping businesses implement AI, automation, and AI-powered workflows to save time, capture leads, and operate more efficiently. He designs and builds productized AI agent and automation offerings using n8n, LangChain, CrewAI, and OpenAI/Claude APIs, applying the same engineering rigor used on enterprise identity systems at Deloitte. He owns company strategy, product architecture, technical development, and go-to-market positioning across the studio's portfolio, including BabbyDaddy.com.",
+    keywords: [
+      "caballero technologies",
+      "founder",
+      "lead engineer",
+      "ai venture studio",
+      "novarose",
+      "novarose ai",
+      "automation",
+      "ai agent",
+      "n8n",
+      "langchain",
+      "crewai",
+      "openai",
+      "claude api",
+      "product architecture",
+      "go-to-market",
+      "babydaddy",
     ],
   },
   {

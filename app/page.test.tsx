@@ -15,10 +15,6 @@ vi.mock("./components/About", () => ({
   default: () => <section data-testid="about" />,
 }));
 
-vi.mock("./components/Connect4", () => ({
-  default: () => <section data-testid="connect4" />,
-}));
-
 vi.mock("./components/Projects", () => ({
   default: ({
     sectionRef,

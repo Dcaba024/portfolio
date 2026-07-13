@@ -212,7 +212,7 @@ const renderLinkedText = (text: string) => {
         href={getHrefFromMatchedUrl(linkText)}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-semibold text-amber-200 underline decoration-amber-300/60 underline-offset-4 transition hover:text-amber-100"
+        className="font-semibold text-white underline decoration-white/60 underline-offset-4 transition hover:text-white"
       >
         {linkText}
       </a>
@@ -300,6 +300,11 @@ export default function FloatingChatbot({
 
     const linkRequestResponse = getLinkRequestResponse(trimmed);
     if (linkRequestResponse) {
+      const triggersSpotlight =
+        linkRequestResponse.shouldSpotlightResume ||
+        linkRequestResponse.shouldSpotlightContact ||
+        linkRequestResponse.shouldSpotlightProjects;
+
       if (linkRequestResponse.shouldSpotlightResume) {
         onResumeRequest?.();
       }
@@ -317,6 +322,10 @@ export default function FloatingChatbot({
           linkRequestResponse.links
         ),
       ]);
+
+      if (triggersSpotlight) {
+        window.setTimeout(() => setIsOpen(false), 1400);
+      }
       return;
     }
 
@@ -335,7 +344,7 @@ export default function FloatingChatbot({
         title="Open Dylan chatbot"
         aria-label="Open Dylan chatbot"
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 left-3 z-[80] inline-flex h-14 w-14 items-center justify-center rounded-full bg-slate-950 text-white shadow-2xl shadow-slate-950/25 transition hover:-translate-y-0.5 hover:bg-amber-700 sm:bottom-5 sm:left-5 dark:bg-white dark:text-slate-950 dark:hover:bg-amber-300"
+        className="fixed bottom-4 left-3 z-[80] inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-slate-950 text-white shadow-[0_0_30px_-8px_rgba(255,255,255,0.7)] transition hover:-translate-y-0.5 hover:border-white hover:text-white sm:bottom-5 sm:left-5"
       >
         <FaComments size={22} />
       </button>
@@ -347,25 +356,31 @@ export default function FloatingChatbot({
       initial={{ opacity: 0, y: 18, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.28 }}
-      className="fixed bottom-4 left-3 z-[80] w-[calc(100vw-1.5rem)] max-w-[23rem] text-left shadow-2xl shadow-slate-950/20 sm:bottom-5 sm:left-5"
+      className="fixed bottom-4 left-3 z-[80] w-[calc(100vw-1.5rem)] max-w-[23rem] text-left shadow-[0_0_45px_-15px_rgba(255,255,255,0.6)] sm:bottom-5 sm:left-5"
     >
       <section
         aria-label="Dylan chatbot"
-        className="overflow-hidden rounded-[1.35rem] border border-white/15 bg-slate-950 text-white"
+        className="overflow-hidden rounded-[1.1rem] border border-white/25 bg-slate-950 text-white"
       >
-        <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-white/[0.04] px-4 py-3">
+        <div className="flex items-center justify-between gap-3 border-b border-white/15 bg-white/5 px-4 py-3">
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold">
+            <p className="truncate font-hud text-sm font-semibold text-white">
               {"Dylan's assistant"}
             </p>
-            <p className="mt-0.5 text-xs text-slate-400">Online now</p>
+            <p className="mt-0.5 flex items-center gap-1.5 font-mono text-xs text-white/70">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
+              </span>
+              Online now
+            </p>
           </div>
           <button
             type="button"
             title="Minimize Dylan chatbot"
             aria-label="Minimize Dylan chatbot"
             onClick={() => setIsOpen(false)}
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition hover:border-amber-300/70 hover:text-amber-200"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[0.35rem] border border-white/20 text-slate-300 transition hover:border-white/70 hover:text-white"
           >
             <FaMinus size={14} />
           </button>
@@ -384,10 +399,10 @@ export default function FloatingChatbot({
               }`}
             >
               <div
-                className={`max-w-[86%] rounded-[1.1rem] px-4 py-3 text-sm leading-6 ${
+                className={`max-w-[86%] rounded-[0.85rem] px-4 py-3 text-sm leading-6 ${
                   message.role === "user"
-                    ? "bg-gradient-to-r from-amber-600 to-indigo-700 text-white"
-                    : "border border-white/10 bg-white/10 text-slate-100"
+                    ? "border border-white/40 bg-white/15 text-white"
+                    : "border border-white/10 bg-white/5 text-slate-100"
                 }`}
               >
                 <span>{renderLinkedText(message.text)}</span>
@@ -399,7 +414,7 @@ export default function FloatingChatbot({
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-2 text-xs font-semibold text-amber-100 transition hover:border-amber-200/70 hover:bg-amber-300/20 focus:outline-none focus:ring-2 focus:ring-amber-300"
+                        className="inline-flex items-center rounded-[0.3rem] border border-white/30 bg-white/10 px-3 py-2 text-xs font-semibold text-white transition hover:border-white/70 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
                       >
                         {link.label}
                       </a>
@@ -411,7 +426,7 @@ export default function FloatingChatbot({
           ))}
           {isThinking && (
             <div className="flex justify-start">
-              <div className="rounded-[1.1rem] border border-white/10 bg-white/10 px-4 py-3 text-sm text-slate-300">
+              <div className="rounded-[0.85rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300">
                 Thinking...
               </div>
             </div>
@@ -420,11 +435,11 @@ export default function FloatingChatbot({
 
         <form
           onSubmit={handleSubmit}
-          className="flex items-center gap-2 border-t border-white/10 bg-white/[0.04] p-3"
+          className="flex items-center gap-2 border-t border-white/15 bg-white/5 p-3"
         >
           <input
             type="text"
-            className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/8 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:ring-2 focus:ring-amber-400"
+            className="min-w-0 flex-1 rounded-[0.5rem] border border-white/20 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:ring-2 focus:ring-white"
             placeholder="Ask Dylan..."
             value={input}
             onChange={(event) => setInput(event.target.value)}
@@ -435,7 +450,7 @@ export default function FloatingChatbot({
             title="Send message"
             aria-label="Send message"
             disabled={!input.trim() || isThinking}
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-slate-950 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-45"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.5rem] border border-white/40 bg-white/10 text-white transition hover:-translate-y-0.5 hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-45"
           >
             <FaPaperPlane size={15} />
           </button>
